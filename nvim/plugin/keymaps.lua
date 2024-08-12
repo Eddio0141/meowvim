@@ -198,3 +198,24 @@ keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'move UP full-page and center' })
 --     vim.opt.hlsearch = vim.tbl_contains({ '<CR>', 'n', 'N', '*', '#', '?', '/' }, vim.fn.keytrans(char))
 --   end
 -- end, auto_hlsearch_namespace)
+
+keymap.set({"n", "i", "x", "s"}, "<c-s>", "<cmd>write<cr><esc>", { desc = "save" })
+
+-- move around windows
+keymap.set({"n", "t"}, "<c-h>", "<cmd>wincmd h<cr>", { desc = "move to the left window" })
+keymap.set({"n", "t"}, "<c-l>", "<cmd>wincmd l<cr>", { desc = "move to the right window" })
+keymap.set({"n", "t"}, "<c-j>", "<cmd>wincmd j<cr>", { desc = "move to the down window" })
+keymap.set({"n", "t"}, "<c-k>", "<cmd>wincmd k<cr>", { desc = "move to the up window" })
+
+-- session
+keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "quit all" })
+
+keymap.set({"i", "n"}, "<esc>", "<cmd>noh<cr><esc>", { desc = "clear and escape hlsearch" })
+
+-- cmdline movement
+keymap.set("c", "<c-h>", "<left>", { desc = "cmdline left" })
+keymap.set("c", "<c-l>", "<right>", { desc = "cmdline right" })
+keymap.set("c", "<c-k>", "<up>", { desc = "cmdline up" })
+keymap.set("c", "<c-j>", "<down>", { desc = "cmdline down" })
+
+keymap.set("n", "<leader>fn", "<cmd>enew<cr>", { desc = "new file" })

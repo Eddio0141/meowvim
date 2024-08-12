@@ -73,15 +73,6 @@ require('lualine').setup {
   --   lualine_y = {},
   --   lualine_z = {},
   -- },
-  winbar = {
-    lualine_z = {
-      {
-        'filename',
-        path = 1,
-        file_status = true,
-        newfile_status = true,
-      },
-    },
-  },
+  winbar = {},
   extensions = { 'fugitive', 'fzf', 'toggleterm', 'quickfix' },
 }

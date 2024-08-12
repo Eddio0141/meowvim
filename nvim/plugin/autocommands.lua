@@ -80,18 +80,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap.set('n', '<space>pd', peek_definition, desc('lsp [p]eek [d]efinition'))
     keymap.set('n', '<space>pt', peek_type_definition, desc('lsp [p]eek [t]ype definition'))
     keymap.set('n', 'gi', vim.lsp.buf.implementation, desc('lsp [g]o to [i]mplementation'))
-    keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, desc('[lsp] signature help'))
+    keymap.set({'n', 'i'}, '<C-k>', vim.lsp.buf.signature_help, desc('[lsp] signature help'))
     keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, desc('lsp add [w]orksp[a]ce folder'))
     keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, desc('lsp [w]orkspace folder [r]emove'))
     keymap.set('n', '<space>wl', function()
       vim.print(vim.lsp.buf.list_workspace_folders())
     end, desc('[lsp] [w]orkspace folders [l]ist'))
-    keymap.set('n', '<space>rn', vim.lsp.buf.rename, desc('lsp [r]e[n]ame'))
-    keymap.set('n', '<space>wq', vim.lsp.buf.workspace_symbol, desc('lsp [w]orkspace symbol [q]'))
-    keymap.set('n', '<space>dd', vim.lsp.buf.document_symbol, desc('lsp [dd]ocument symbol'))
-    keymap.set('n', '<M-CR>', vim.lsp.buf.code_action, desc('[lsp] code action'))
+    keymap.set('n', '<leader>cr', function()
+        return ":IncRename " .. vim.fn.expand("<cword>")
+    end, { desc = 'lsp rename', expr = true })
+    keymap.set('n', '<space>sS', vim.lsp.buf.workspace_symbol, desc('lsp workspace symbol'))
+    keymap.set('n', '<space>ss', vim.lsp.buf.document_symbol, desc('lsp document symbol'))
+    keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, desc('lsp code action'))
     keymap.set('n', '<M-l>', vim.lsp.codelens.run, desc('[lsp] run code lens'))
-    keymap.set('n', '<space>cr', vim.lsp.codelens.refresh, desc('lsp [c]ode lenses [r]efresh'))
+    -- keymap.set('n', '<space>cr', vim.lsp.codelens.refresh, desc('lsp [c]ode lenses [r]efresh'))
     keymap.set('n', 'gr', vim.lsp.buf.references, desc('lsp [g]et [r]eferences'))
     keymap.set('n', '<space>f', function()
       vim.lsp.buf.format { async = true }
@@ -146,3 +148,33 @@ vim.api.nvim_create_autocmd('LspAttach', {
 --     end
 --   end,
 -- })
+
+local close_with_q_group = api.nvim_create_augroup('close_with_q', { clear = true })
+api.nvim_create_autocmd("FileType", {
+    pattern = {
+        "PlenaryTestPopup",
+        "help",
+        "lspinfo",
+        "man",
+        "notify",
+        "qf",
+        "query",
+        "spectre_panel",
+        "startuptime",
+        "tsplayground",
+        "neotest-output",
+        "checkhealth",
+        "neotest-summary",
+        "neotest-output-panel"
+    },
+    group = close_with_q_group,
+    callback = function(arg)
+        vim.bo[arg.buf].buflisted = false
+        vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = arg.buf, silent = true })
+    end,
+})
+
+api.nvim_create_autocmd({"BufRead", "BufNewFile"},
+    { pattern = {"*.lua", "*.js", "*.cpp", "*.h"},
+    command = "setlocal tabstop=2 shiftwidth=2 expandtab softtabstop=2"}
+)

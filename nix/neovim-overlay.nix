@@ -1,10 +1,13 @@
 # This overlay, when applied to nixpkgs, adds the final neovim derivation to nixpkgs.
-{inputs}: final: prev:
-with final.pkgs.lib; let
+{ inputs }:
+final: prev:
+with final.pkgs.lib;
+let
   pkgs = final;
 
   # Use this to create a plugin from a flake input
-  mkNvimPlugin = src: pname:
+  mkNvimPlugin =
+    src: pname:
     pkgs.vimUtils.buildVimPlugin {
       inherit pname src;
       version = src.lastModifiedDate;
@@ -50,7 +53,8 @@ with final.pkgs.lib; let
     # ^ git integration plugins
     # telescope and extensions
     telescope-nvim # https://github.com/nvim-telescope/telescope.nvim/
-    telescope-fzy-native-nvim # https://github.com/nvim-telescope/telescope-fzy-native.nvim
+    # telescope-fzy-native-nvim # https://github.com/nvim-telescope/telescope-fzy-native.nvim
+    telescope-fzf-native-nvim
     # telescope-smart-history-nvim # https://github.com/nvim-telescope/telescope-smart-history.nvim
     # ^ telescope and extensions
     # UI
@@ -81,14 +85,39 @@ with final.pkgs.lib; let
     # (mkNvimPlugin inputs.wf-nvim "wf.nvim") # (example) keymap hints | https://github.com/Cassin01/wf.nvim
     # ^ bleeding-edge plugins from flake inputs
     which-key-nvim
+    neo-tree-nvim
+    toggleterm-nvim
+    yanky-nvim
+    rustaceanvim
+    inc-rename-nvim
+    bufferline-nvim
+    lazygit-nvim
+    noice-nvim
+    conform-nvim
+    persistence-nvim
+    mini-nvim
+    leap-nvim
+    alpha-nvim
+(pkgs.vimUtils.buildVimPlugin {
+      name = "my-plugin";
+      src = pkgs.fetchFromGitHub {
+        owner = "activitywatch";
+        repo = "aw-watcher-vim";
+        rev = "4ba86d05a940574000c33f280fd7f6eccc284331";
+        hash = "sha256-I7YYvQupeQxWr2HEpvba5n91+jYvJrcWZhQg+5rI908=";
+      };
+    })
   ];
 
   extraPackages = with pkgs; [
-    # language servers, etc.
     lua-language-server
-    nil # nix LSP
+    nil
+    # fd
+    ripgrep
+    lazygit
   ];
-in {
+in
+{
   # This is the neovim derivation
   # returned by the overlay
   nvim-pkg = mkNeovim {
@@ -97,9 +126,7 @@ in {
   };
 
   # This can be symlinked in the devShell's shellHook
-  nvim-luarc-json = final.mk-luarc-json {
-    plugins = all-plugins;
-  };
+  nvim-luarc-json = final.mk-luarc-json { plugins = all-plugins; };
 
   # You can add as many derivations as you like.
   # Use `ignoreConfigRegexes` to filter out config
