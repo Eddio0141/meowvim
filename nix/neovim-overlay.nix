@@ -98,7 +98,7 @@ let
     mini-nvim
     leap-nvim
     alpha-nvim
-(pkgs.vimUtils.buildVimPlugin {
+    (pkgs.vimUtils.buildVimPlugin {
       name = "my-plugin";
       src = pkgs.fetchFromGitHub {
         owner = "activitywatch";
