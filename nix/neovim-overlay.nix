@@ -107,6 +107,7 @@ let
         hash = "sha256-I7YYvQupeQxWr2HEpvba5n91+jYvJrcWZhQg+5rI908=";
       };
     })
+    comment-nvim
   ];
 
   extraPackages = with pkgs; [
