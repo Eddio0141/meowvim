@@ -199,18 +199,23 @@ keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'move UP full-page and center' })
 --   end
 -- end, auto_hlsearch_namespace)
 
-keymap.set({"n", "i", "x", "s"}, "<c-s>", "<cmd>write<cr><esc>", { desc = "save" })
+keymap.set({ "n", "i", "x", "s" }, "<c-s>", "<cmd>write<cr><esc>", { desc = "save" })
 
 -- move around windows
-keymap.set({"n", "t"}, "<c-h>", "<cmd>wincmd h<cr>", { desc = "move to the left window" })
-keymap.set({"n", "t"}, "<c-l>", "<cmd>wincmd l<cr>", { desc = "move to the right window" })
-keymap.set({"n", "t"}, "<c-j>", "<cmd>wincmd j<cr>", { desc = "move to the down window" })
-keymap.set({"n", "t"}, "<c-k>", "<cmd>wincmd k<cr>", { desc = "move to the up window" })
+keymap.set({ "n", "t" }, "<c-h>", "<cmd>wincmd h<cr>", { desc = "move to the left window" })
+keymap.set({ "n", "t" }, "<c-l>", "<cmd>wincmd l<cr>", { desc = "move to the right window" })
+keymap.set({ "n", "t" }, "<c-j>", "<cmd>wincmd j<cr>", { desc = "move to the down window" })
+keymap.set({ "n", "t" }, "<c-k>", "<cmd>wincmd k<cr>", { desc = "move to the up window" })
+
+-- extra window stuff
+keymap.set("n", "<leader>w-", "<c-w>s", { desc = "split window below" })
+keymap.set("n", "<leader>w|", "<c-w>v", { desc = "split window right" })
+keymap.set("n", "<leader>wd", "<c-w>c", { desc = "delete window" })
 
 -- session
 keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "quit all" })
 
-keymap.set({"i", "n"}, "<esc>", "<cmd>noh<cr><esc>", { desc = "clear and escape hlsearch" })
+keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "clear and escape hlsearch" })
 
 -- cmdline movement
 keymap.set("c", "<c-h>", "<left>", { desc = "cmdline left" })
