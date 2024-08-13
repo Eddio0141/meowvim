@@ -103,6 +103,9 @@ vim.keymap.set(
   builtin.lsp_dynamic_workspace_symbols,
   { desc = '[t]elescope lsp dynamic w[o]rkspace symbols' }
 )
+vim.keymap.set("n", "<leader>tn", function()
+  require("telescope").extensions.notify.notify()
+end, { desc = "telescope notifications" })
 
 telescope.setup {
   defaults = {
@@ -153,10 +156,10 @@ telescope.setup {
       override_file_sorter = true,
     },
     fzf = {
-        fuzzy = true,
-        override_generic_sorter = true,
-        override_file_sorter = true,
-        case_mode = "smart_case",
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case",
     }
   },
 }
@@ -164,3 +167,4 @@ telescope.setup {
 -- telescope.load_extension('fzy_native')
 -- telescope.load_extension('smart_history')
 telescope.load_extension("fzf")
+telescope.load_extension("notify")
