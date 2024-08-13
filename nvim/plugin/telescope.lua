@@ -96,13 +96,9 @@ vim.keymap.set(
   builtin.current_buffer_fuzzy_find,
   { desc = '[t]elescope current [b]uffer [f]uzzy find' }
 )
-vim.keymap.set('n', '<leader>td', builtin.lsp_document_symbols, { desc = '[t]elescope lsp [d]ocument symbols' })
-vim.keymap.set(
-  'n',
-  '<leader>to',
-  builtin.lsp_dynamic_workspace_symbols,
-  { desc = '[t]elescope lsp dynamic w[o]rkspace symbols' }
-)
+vim.keymap.set('n', '<leader>ss', builtin.lsp_document_symbols, { desc = 'telescope lsp document symbols' })
+vim.keymap.set('n', '<leader>sS', builtin.lsp_dynamic_workspace_symbols,
+  { desc = 'telescope lsp dynamic workspace symbols' })
 vim.keymap.set("n", "<leader>tn", function()
   require("telescope").extensions.notify.notify()
 end, { desc = "telescope notifications" })

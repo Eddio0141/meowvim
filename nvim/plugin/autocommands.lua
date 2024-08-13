@@ -89,8 +89,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap.set('n', '<leader>cr', function()
       return ":IncRename " .. vim.fn.expand("<cword>")
     end, { desc = 'lsp rename', expr = true })
-    keymap.set('n', '<space>sS', vim.lsp.buf.workspace_symbol, desc('lsp workspace symbol'))
-    keymap.set('n', '<space>ss', vim.lsp.buf.document_symbol, desc('lsp document symbol'))
     keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, desc('lsp code action'))
     keymap.set('n', '<M-l>', vim.lsp.codelens.run, desc('[lsp] run code lens'))
     -- keymap.set('n', '<space>cr', vim.lsp.codelens.refresh, desc('lsp [c]ode lenses [r]efresh'))
