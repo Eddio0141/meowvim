@@ -118,7 +118,6 @@ let
 
   extraPackages = with pkgs; [
     lua-language-server
-    nil
     # fd
     ripgrep
     lazygit
