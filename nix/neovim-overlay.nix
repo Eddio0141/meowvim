@@ -113,6 +113,7 @@ let
     nvim-notify
     headlines-nvim # markdown and friends
     trouble-nvim
+    nvim-autopairs
   ];
 
   extraPackages = with pkgs; [
