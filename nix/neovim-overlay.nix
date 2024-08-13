@@ -112,6 +112,7 @@ let
     catppuccin-nvim
     nvim-notify
     headlines-nvim # markdown and friends
+    trouble-nvim
   ];
 
   extraPackages = with pkgs; [
