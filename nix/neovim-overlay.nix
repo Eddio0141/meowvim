@@ -55,6 +55,7 @@ let
     # telescope-fzy-native-nvim # https://github.com/nvim-telescope/telescope-fzy-native.nvim
     telescope-fzf-native-nvim
     # telescope-smart-history-nvim # https://github.com/nvim-telescope/telescope-smart-history.nvim
+    telescope-ui-select-nvim
     # ^ telescope and extensions
     # UI
     lualine-nvim # Status line | https://github.com/nvim-lualine/lualine.nvim/
