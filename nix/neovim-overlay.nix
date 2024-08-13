@@ -108,6 +108,7 @@ let
       };
     })
     comment-nvim
+    catppuccin-nvim
   ];
 
   extraPackages = with pkgs; [
