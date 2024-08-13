@@ -110,6 +110,7 @@ let
     comment-nvim
     catppuccin-nvim
     nvim-notify
+    headlines-nvim # markdown and friends
   ];
 
   extraPackages = with pkgs; [
