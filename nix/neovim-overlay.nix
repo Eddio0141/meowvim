@@ -109,6 +109,7 @@ let
     })
     comment-nvim
     catppuccin-nvim
+    nvim-notify
   ];
 
   extraPackages = with pkgs; [
