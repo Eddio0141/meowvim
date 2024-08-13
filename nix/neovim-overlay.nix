@@ -122,6 +122,7 @@ let
     ripgrep
     lazygit
     nixd
+    nixfmt-rfc-style
   ];
 in
 {
