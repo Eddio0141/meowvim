@@ -119,6 +119,7 @@ let
     # fd
     ripgrep
     lazygit
+    nixd
   ];
 in
 {

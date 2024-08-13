@@ -57,7 +57,6 @@
           buildInputs = with pkgs; [
             # Tools for Lua and Nix development, useful for editing files in this repo
             lua-language-server
-            nixd
             stylua
             luajitPackages.luacheck
             nixfmt-rfc-style
