@@ -17,6 +17,10 @@
       url = "github:jinh0/eyeliner.nvim";
       flake = false;
     };
+    lzn-auto-require = {
+      url = "github:horriblename/lzn-auto-require";
+      flake = false;
+    };
   };
 
   outputs =

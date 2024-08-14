@@ -71,6 +71,22 @@
         "type": "github"
       }
     },
+    "lzn-auto-require": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1722727896,
+        "narHash": "sha256-h7Dx3zBkUYamQY6lcuQrwAMgBpPqskLnA6WsbefHzMU=",
+        "owner": "horriblename",
+        "repo": "lzn-auto-require",
+        "rev": "c6b47e148a1ff9709e802f68c2c8b558a9a8de9b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "horriblename",
+        "repo": "lzn-auto-require",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1718714799,
@@ -120,6 +136,7 @@
         "eyeliner-nvim": "eyeliner-nvim",
         "flake-utils": "flake-utils",
         "gen-luarc": "gen-luarc",
+        "lzn-auto-require": "lzn-auto-require",
         "nixpkgs": "nixpkgs_2"
       }
     },
