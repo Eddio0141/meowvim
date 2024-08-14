@@ -100,7 +100,7 @@ let
     leap-nvim
     alpha-nvim
     (pkgs.vimUtils.buildVimPlugin {
-      name = "my-plugin";
+      name = "activitywatch";
       src = pkgs.fetchFromGitHub {
         owner = "activitywatch";
         repo = "aw-watcher-vim";
