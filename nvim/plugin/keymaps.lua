@@ -129,14 +129,14 @@ keymap.set('n', '<space>tq', vim.cmd.tabclose, { desc = '[t]ab: [q]uit/close' })
 
 local severity = diagnostic.severity
 
-keymap.set('n', '<space>e', function()
-  local _, winid = diagnostic.open_float(nil, { scope = 'line' })
-  if not winid then
-    vim.notify('no diagnostics found', vim.log.levels.INFO)
-    return
-  end
-  vim.api.nvim_win_set_config(winid or 0, { focusable = true })
-end, { noremap = true, silent = true, desc = 'diagnostics floating window' })
+-- keymap.set('n', '<space>e', function()
+--   local _, winid = diagnostic.open_float(nil, { scope = 'line' })
+--   if not winid then
+--     vim.notify('no diagnostics found', vim.log.levels.INFO)
+--     return
+--   end
+--   vim.api.nvim_win_set_config(winid or 0, { focusable = true })
+-- end, { noremap = true, silent = true, desc = 'diagnostics floating window' })
 keymap.set('n', '[d', diagnostic.goto_prev, { noremap = true, silent = true, desc = 'previous [d]iagnostic' })
 keymap.set('n', ']d', diagnostic.goto_next, { noremap = true, silent = true, desc = 'next [d]iagnostic' })
 keymap.set('n', '[e', function()
