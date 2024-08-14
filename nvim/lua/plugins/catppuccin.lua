@@ -1,3 +1,8 @@
+return {
+  "catppuccin.nvim",
+  colorscheme = "catppuccin-macchiato"
+}
+
 -- require("catppuccin").setup({
 --   integrations = {
 --     ts_rainbow = true,
@@ -20,5 +25,3 @@
 --     },
 --   },
 -- })
-
-vim.cmd.colorscheme("catppuccin-macchiato")
