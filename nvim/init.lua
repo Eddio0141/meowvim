@@ -108,6 +108,8 @@ cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
 -- let sqlite.lua (which some plugins depend on) know where to find sqlite
 vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
 
-require("lz.n").load("plugins")
+local lz_n = require("lz.n")
+lz_n.register_handler(require("user.on_require"))
+lz_n.load("plugins")
 
 vim.cmd.colorscheme("catppuccin-macchiato")
