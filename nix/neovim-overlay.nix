@@ -26,6 +26,8 @@ let
     bufferline-nvim
     neo-tree-nvim
     nvim-autopairs
+    (mkNvimPlugin inputs.eyeliner-nvim "eyeliner.nvim") # NOTE: temporary fix for load error
+    # eyeliner-nvim # Highlights unique characters for f/F and t/T motions | https://github.com/jinh0/eyeliner.nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -39,16 +41,8 @@ let
   all-plugins =
     with pkgs.vimPlugins;
     [
-      {
-        plugin = lz-n;
-        optional = false;
-      }
-      {
-        plugin = (mkNvimPlugin inputs.lzn-auto-require "lzn-auto-require");
-        optional = false;
-      }
-      # plugins from nixpkgs go in here.
-      # https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=vimPlugins
+      lz-n
+      (mkNvimPlugin inputs.lzn-auto-require "lzn-auto-require")
       nvim-treesitter.withAllGrammars
       luasnip # snippets | https://github.com/l3mon4d3/luasnip/
       # nvim-cmp (autocompletion) and extensions
@@ -85,8 +79,6 @@ let
       # ^ language support
       # navigation/editing enhancement plugins
       vim-unimpaired # predefined ] and [ navigation keymaps | https://github.com/tpope/vim-unimpaired/
-      (mkNvimPlugin inputs.eyeliner-nvim "eyeliner.nvim") # NOTE: temporary fix for load error
-      # eyeliner-nvim # Highlights unique characters for f/F and t/T motions | https://github.com/jinh0/eyeliner.nvim
       nvim-surround # https://github.com/kylechui/nvim-surround/
       nvim-treesitter-textobjects # https://github.com/nvim-treesitter/nvim-treesitter-textobjects/
       nvim-ts-context-commentstring # https://github.com/joosepalviste/nvim-ts-context-commentstring/
