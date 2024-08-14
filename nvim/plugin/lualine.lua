@@ -32,7 +32,7 @@ require('lualine').setup {
   sections = {
     lualine_c = {
       -- nvim-navic
-      { navic.get_location, cond = navic.is_available },
+      { "filename", navic.get_location, cond = navic.is_available },
     },
     lualine_z = {
       -- (see above)
