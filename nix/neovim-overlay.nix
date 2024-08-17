@@ -30,6 +30,7 @@ let
     inc-rename-nvim
     persistence-nvim
     toggleterm-nvim
+    conform-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -101,7 +102,6 @@ let
       yanky-nvim
       rustaceanvim
       noice-nvim
-      conform-nvim
       mini-nvim
       leap-nvim
       alpha-nvim
