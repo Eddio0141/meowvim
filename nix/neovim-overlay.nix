@@ -116,10 +116,7 @@ let
       })
       comment-nvim
       nvim-notify
-      {
-        plugin = catppuccin-nvim;
-        optional = false;
-      }
+      catppuccin-nvim
     ]
     # add the lazily loaded plugins
     ++ (map (
