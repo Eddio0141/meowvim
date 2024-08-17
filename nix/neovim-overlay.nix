@@ -28,6 +28,7 @@ let
     nvim-autopairs
     (mkNvimPlugin inputs.eyeliner-nvim "eyeliner.nvim") # NOTE: temporary fix for load error
     # eyeliner-nvim # Highlights unique characters for f/F and t/T motions | https://github.com/jinh0/eyeliner.nvim
+    inc-rename-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -99,7 +100,6 @@ let
       toggleterm-nvim
       yanky-nvim
       rustaceanvim
-      inc-rename-nvim
       lazygit-nvim
       noice-nvim
       conform-nvim
