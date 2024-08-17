@@ -100,7 +100,6 @@ let
       which-key-nvim
       yanky-nvim
       rustaceanvim
-      lazygit-nvim
       noice-nvim
       conform-nvim
       mini-nvim
