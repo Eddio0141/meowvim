@@ -1,6 +1,7 @@
 return {
   "neo-tree.nvim",
   cmd = "Neotree",
+  on_require = "neo-tree",
   keys = {
     { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "toggle neotree", },
     { "<leader>r", "<cmd>Neotree reveal<cr>", desc = "reveal current file in neotree" }

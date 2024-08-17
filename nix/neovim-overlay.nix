@@ -28,6 +28,7 @@ let
     (mkNvimPlugin inputs.eyeliner-nvim "eyeliner.nvim") # NOTE: temporary fix for load error
     # eyeliner-nvim # Highlights unique characters for f/F and t/T motions | https://github.com/jinh0/eyeliner.nvim
     inc-rename-nvim
+    persistence-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -102,7 +103,6 @@ let
       lazygit-nvim
       noice-nvim
       conform-nvim
-      persistence-nvim
       mini-nvim
       leap-nvim
       alpha-nvim
