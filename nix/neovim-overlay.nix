@@ -22,7 +22,6 @@ let
 
   # lazily loaded plugins
   lazy-plugins = with pkgs.vimPlugins; [
-    headlines-nvim
     bufferline-nvim
     neo-tree-nvim
     nvim-autopairs
