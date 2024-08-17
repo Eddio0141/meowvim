@@ -40,6 +40,7 @@ let
     # telescope-smart-history-nvim # https://github.com/nvim-telescope/telescope-smart-history.nvim
     telescope-ui-select-nvim
     # ^ telescope and extensions
+    mini-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -100,7 +101,6 @@ let
       which-key-nvim
       rustaceanvim
       noice-nvim
-      mini-nvim
       leap-nvim
       alpha-nvim
       (pkgs.vimUtils.buildVimPlugin {
