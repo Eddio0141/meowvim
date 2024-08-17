@@ -29,6 +29,7 @@ let
     # eyeliner-nvim # Highlights unique characters for f/F and t/T motions | https://github.com/jinh0/eyeliner.nvim
     inc-rename-nvim
     persistence-nvim
+    toggleterm-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -97,7 +98,6 @@ let
       # (mkNvimPlugin inputs.wf-nvim "wf.nvim") # (example) keymap hints | https://github.com/Cassin01/wf.nvim
       # ^ bleeding-edge plugins from flake inputs
       which-key-nvim
-      toggleterm-nvim
       yanky-nvim
       rustaceanvim
       lazygit-nvim
