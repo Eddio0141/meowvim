@@ -31,6 +31,7 @@ let
     persistence-nvim
     toggleterm-nvim
     conform-nvim
+    trouble-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -115,7 +116,6 @@ let
       })
       comment-nvim
       nvim-notify
-      trouble-nvim
       {
         plugin = catppuccin-nvim;
         optional = false;
