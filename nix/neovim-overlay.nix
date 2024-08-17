@@ -47,7 +47,6 @@ let
     with pkgs.vimPlugins;
     [
       lz-n
-      (mkNvimPlugin inputs.lzn-auto-require "lzn-auto-require")
       nvim-treesitter.withAllGrammars
       luasnip # snippets | https://github.com/l3mon4d3/luasnip/
       # nvim-cmp (autocompletion) and extensions
