@@ -32,6 +32,7 @@ let
     toggleterm-nvim
     conform-nvim
     trouble-nvim
+    nvim-surround # https://github.com/kylechui/nvim-surround/
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -82,7 +83,6 @@ let
       # ^ language support
       # navigation/editing enhancement plugins
       vim-unimpaired # predefined ] and [ navigation keymaps | https://github.com/tpope/vim-unimpaired/
-      nvim-surround # https://github.com/kylechui/nvim-surround/
       nvim-treesitter-textobjects # https://github.com/nvim-treesitter/nvim-treesitter-textobjects/
       nvim-ts-context-commentstring # https://github.com/joosepalviste/nvim-ts-context-commentstring/
       # ^ navigation/editing enhancement plugins
