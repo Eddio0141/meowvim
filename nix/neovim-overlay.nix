@@ -61,7 +61,6 @@ let
       cmp-cmdline-history # cmp command line history suggestions
       # ^ nvim-cmp extensions
       # git integration plugins
-      diffview-nvim # https://github.com/sindrets/diffview.nvim/
       gitsigns-nvim # https://github.com/lewis6991/gitsigns.nvim/
       vim-fugitive # https://github.com/tpope/vim-fugitive/
       # ^ git integration plugins
