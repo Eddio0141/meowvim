@@ -175,3 +175,13 @@ api.nvim_create_autocmd({ "BufRead", "BufNewFile" },
     command = "setlocal tabstop=2 shiftwidth=2 expandtab softtabstop=2"
   }
 )
+
+-- highlight on yank
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = vim.api.nvim_create_augroup('highlight_yank', {}),
+  desc = 'Hightlight selection on yank',
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank { higroup = 'IncSearch', timeout = 250 }
+  end,
+})
