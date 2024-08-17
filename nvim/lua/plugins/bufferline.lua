@@ -1,6 +1,6 @@
 return {
   "bufferline.nvim",
-  event = "BufEnter",
+  event = "BufAdd",
   after = function()
     require("bufferline").setup({
       options = {
