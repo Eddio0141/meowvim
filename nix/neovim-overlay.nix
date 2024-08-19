@@ -51,6 +51,7 @@ let
     lualine-nvim # Status line | https://github.com/nvim-lualine/lualine.nvim/
     nvim-navic # Add LSP location to lualine | https://github.com/SmiteshP/nvim-navic
     which-key-nvim
+    cord-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
