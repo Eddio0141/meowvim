@@ -45,6 +45,7 @@ let
     lspkind-nvim # vscode-like LSP pictograms | https://github.com/onsails/lspkind.nvim/
     # nvim-cmp (autocompletion)
     nvim-cmp # https://github.com/hrsh7th/nvim-cmp
+    comment-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -113,7 +114,6 @@ let
           hash = "sha256-I7YYvQupeQxWr2HEpvba5n91+jYvJrcWZhQg+5rI908=";
         };
       })
-      comment-nvim
       nvim-notify
       catppuccin-nvim
     ]
