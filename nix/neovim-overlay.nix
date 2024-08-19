@@ -50,6 +50,7 @@ let
     leap-nvim
     lualine-nvim # Status line | https://github.com/nvim-lualine/lualine.nvim/
     nvim-navic # Add LSP location to lualine | https://github.com/SmiteshP/nvim-navic
+    which-key-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -102,7 +103,6 @@ let
       # bleeding-edge plugins from flake inputs
       # (mkNvimPlugin inputs.wf-nvim "wf.nvim") # (example) keymap hints | https://github.com/Cassin01/wf.nvim
       # ^ bleeding-edge plugins from flake inputs
-      which-key-nvim
       rustaceanvim
       alpha-nvim
       (pkgs.vimUtils.buildVimPlugin {
