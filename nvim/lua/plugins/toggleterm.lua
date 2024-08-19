@@ -2,7 +2,7 @@ return {
   "toggleterm.nvim",
   keys = {
     "<c-/>",
-    "<leader>gg"
+    { "<leader>gg", desc = "Lazy git" }
   },
   after = function()
     require("toggleterm").setup({
@@ -35,6 +35,6 @@ return {
 
     vim.keymap.set("n", "<leader>gg", function()
       lazygit:toggle()
-    end, { noremap = true, silent = true })
+    end, { noremap = true, silent = true, desc = "Lazy git" })
   end
 }
