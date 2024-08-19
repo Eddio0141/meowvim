@@ -48,6 +48,8 @@ let
     comment-nvim
     noice-nvim
     leap-nvim
+    lualine-nvim # Status line | https://github.com/nvim-lualine/lualine.nvim/
+    nvim-navic # Add LSP location to lualine | https://github.com/SmiteshP/nvim-navic
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -78,8 +80,6 @@ let
       vim-fugitive # https://github.com/tpope/vim-fugitive/
       # ^ git integration plugins
       # UI
-      lualine-nvim # Status line | https://github.com/nvim-lualine/lualine.nvim/
-      nvim-navic # Add LSP location to lualine | https://github.com/SmiteshP/nvim-navic
       statuscol-nvim # Status column | https://github.com/luukvbaal/statuscol.nvim/
       nvim-treesitter-context # nvim-treesitter-context
       # ^ UI

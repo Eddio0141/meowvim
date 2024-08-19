@@ -49,6 +49,9 @@ opt.ignorecase = true
 opt.wrap = true
 opt.clipboard = "unnamedplus"
 
+-- wait for lualine to load and replace it
+opt.laststatus = 0
+
 -- Configure Neovim diagnostic messages
 
 local function prefix_diagnostic(prefix, diagnostic)
