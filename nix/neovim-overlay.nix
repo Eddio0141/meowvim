@@ -47,6 +47,7 @@ let
     nvim-cmp # https://github.com/hrsh7th/nvim-cmp
     comment-nvim
     noice-nvim
+    leap-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -103,7 +104,6 @@ let
       # ^ bleeding-edge plugins from flake inputs
       which-key-nvim
       rustaceanvim
-      leap-nvim
       alpha-nvim
       (pkgs.vimUtils.buildVimPlugin {
         name = "activitywatch";
