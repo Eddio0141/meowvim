@@ -41,6 +41,10 @@ let
     telescope-ui-select-nvim
     # ^ telescope and extensions
     mini-nvim
+    luasnip # snippets | https://github.com/l3mon4d3/luasnip/
+    lspkind-nvim # vscode-like LSP pictograms | https://github.com/onsails/lspkind.nvim/
+    # nvim-cmp (autocompletion)
+    nvim-cmp # https://github.com/hrsh7th/nvim-cmp
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -56,11 +60,8 @@ let
     [
       lz-n
       nvim-treesitter.withAllGrammars
-      luasnip # snippets | https://github.com/l3mon4d3/luasnip/
-      # nvim-cmp (autocompletion) and extensions
-      nvim-cmp # https://github.com/hrsh7th/nvim-cmp
+      # cmp extensions
       cmp_luasnip # snippets autocompletion extension for nvim-cmp | https://github.com/saadparwaiz1/cmp_luasnip/
-      lspkind-nvim # vscode-like LSP pictograms | https://github.com/onsails/lspkind.nvim/
       cmp-nvim-lsp # LSP as completion source | https://github.com/hrsh7th/cmp-nvim-lsp/
       cmp-nvim-lsp-signature-help # https://github.com/hrsh7th/cmp-nvim-lsp-signature-help/
       cmp-buffer # current buffer as completion source | https://github.com/hrsh7th/cmp-buffer/
@@ -68,7 +69,7 @@ let
       cmp-nvim-lua # neovim lua API as completion source | https://github.com/hrsh7th/cmp-nvim-lua/
       cmp-cmdline # cmp command line suggestions
       cmp-cmdline-history # cmp command line history suggestions
-      # ^ nvim-cmp extensions
+      # ^ cmp extensions
       # git integration plugins
       gitsigns-nvim # https://github.com/lewis6991/gitsigns.nvim/
       vim-fugitive # https://github.com/tpope/vim-fugitive/
