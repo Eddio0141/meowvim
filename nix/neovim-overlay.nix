@@ -52,6 +52,7 @@ let
     nvim-navic # Add LSP location to lualine | https://github.com/SmiteshP/nvim-navic
     which-key-nvim
     cord-nvim
+    nvim-spectre
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -137,6 +138,7 @@ let
     lazygit
     nixd
     nixfmt-rfc-style
+    gnused
   ];
 in
 {
