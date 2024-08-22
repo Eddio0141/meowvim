@@ -68,6 +68,7 @@ return {
     { '<leader>t*',      function() grep_string_current_file_type() end,                              desc = '[t]elescope grep current string [*] in current filetype' },
     { '<leader>tg',      function() project_files() end,                                              desc = '[t]elescope project files [g]' },
     { "<leader>tn",      function() require("telescope").extensions.notify.notify() end,              desc = "telescope notifications" },
+    { "gr",              function() require("telescope.builtin").lsp_references() end,                desc = "go to references" },
   },
   after = function()
     local telescope = require('telescope')
