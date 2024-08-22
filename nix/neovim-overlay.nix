@@ -53,6 +53,7 @@ let
     which-key-nvim
     cord-nvim
     nvim-spectre
+    crates-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
