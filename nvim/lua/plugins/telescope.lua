@@ -1,26 +1,77 @@
+-- Fall back to find_files if not in a git repo
+local project_files = function()
+  local builtin = require("telescope.builtin")
+  local opts = {} -- define here if you want to define something
+  local ok = pcall(builtin.git_files, opts)
+  if not ok then
+    builtin.find_files(opts)
+  end
+end
+
+---@param picker function the telescope picker to use
+local function grep_current_file_type(picker)
+  local current_file_ext = vim.fn.expand('%:e')
+  local additional_vimgrep_arguments = {}
+  if current_file_ext ~= '' then
+    additional_vimgrep_arguments = {
+      '--type',
+      current_file_ext,
+    }
+  end
+  local conf = require('telescope.config').values
+  picker {
+    vimgrep_arguments = vim.tbl_flatten {
+      conf.vimgrep_arguments,
+      additional_vimgrep_arguments,
+    },
+  }
+end
+
+--- Grep the string under the cursor, filtering for the current file type
+local function grep_string_current_file_type()
+  grep_current_file_type(require("telescope.builtin").grep_string)
+end
+
+--- Live grep, filtering for the current file type
+local function live_grep_current_file_type()
+  grep_current_file_type(require("telescope.builtin").live_grep)
+end
+
+--- Like live_grep, but fuzzy (and slower)
+local function fuzzy_grep(opts)
+  opts = vim.tbl_extend('error', opts or {}, { search = '', prompt_title = 'Fuzzy grep' })
+  require("telescope.builtin").grep_string(opts)
+end
+
+local function fuzzy_grep_current_file_type()
+  grep_current_file_type(fuzzy_grep)
+end
+
 return {
   "telescope.nvim",
   keys = {
-    {
-      "<leader><space>",
-      function()
-        require('telescope.builtin').find_files()
-      end,
-      desc = '[t]elescope find files - ctrl[p] style'
-    },
-    {
-      "<leader>/",
-      function()
-        require('telescope.builtin').live_grep()
-      end,
-      desc = '[telescope] live grep'
-    }
+    { "<leader><space>", function() require('telescope.builtin').find_files() end,                    desc = '[t]elescope find files - ctrl[p] style' },
+    { "<leader>/",       function() require('telescope.builtin').live_grep() end,                     desc = '[telescope] live grep' },
+    { '<M-p>',           function() require("telescope.builtin").oldfiles() end,                      desc = '[telescope] old files' },
+    { '<leader>*',       function() require("telescope.builtin").grep_string() end,                   desc = '[telescope] grep current string [*]' },
+    { '<leader>tc',      function() require("telescope.builtin").quickfix() end,                      desc = '[t]elescope quickfix list [c]' },
+    { '<leader>tq',      function() require("telescope.builtin").command_history() end,               desc = '[t]elescope command history [q]' },
+    { '<leader>tl',      function() require("telescope.builtin").loclist() end,                       desc = '[t]elescope [l]oclist' },
+    { '<leader>tr',      function() require("telescope.builtin").registers() end,                     desc = '[t]elescope [r]egisters' },
+    { '<leader>tbb',     function() require("telescope.builtin").buffers() end,                       desc = '[t]elescope [b]uffers [b]' },
+    { '<leader>tbf',     function() require("telescope.builtin").current_buffer_fuzzy_find() end,     desc = '[t]elescope current [b]uffer [f]uzzy find' },
+    { '<leader>ss',      function() require("telescope.builtin").lsp_document_symbols() end,          desc = 'telescope lsp document symbols' },
+    { '<leader>sS',      function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, desc = 'telescope lsp dynamic workspace symbols' },
+    { '<leader>tf',      function() fuzzy_grep() end,                                                 desc = '[t]elescope [f]uzzy grep' },
+    { '<M-f>',           function() fuzzy_grep_current_file_type() end,                               desc = '[telescope] fuzzy grep filetype' },
+    { '<M-g>',           function() live_grep_current_file_type() end,                                desc = '[telescope] live grep filetype' },
+    { '<leader>t*',      function() grep_string_current_file_type() end,                              desc = '[t]elescope grep current string [*] in current filetype' },
+    { '<leader>tg',      function() project_files() end,                                              desc = '[t]elescope project files [g]' },
+    { "<leader>tn",      function() require("telescope").extensions.notify.notify() end,              desc = "telescope notifications" },
   },
   after = function()
     local telescope = require('telescope')
     local actions = require('telescope.actions')
-
-    local builtin = require('telescope.builtin')
 
     -- load extensions
     vim.cmd.packadd("telescope-fzf-native.nvim")
@@ -38,84 +89,6 @@ return {
         preview_cutoff = 0,
       },
     }
-
-    -- Fall back to find_files if not in a git repo
-    local project_files = function()
-      local opts = {} -- define here if you want to define something
-      local ok = pcall(builtin.git_files, opts)
-      if not ok then
-        builtin.find_files(opts)
-      end
-    end
-
-    ---@param picker function the telescope picker to use
-    local function grep_current_file_type(picker)
-      local current_file_ext = vim.fn.expand('%:e')
-      local additional_vimgrep_arguments = {}
-      if current_file_ext ~= '' then
-        additional_vimgrep_arguments = {
-          '--type',
-          current_file_ext,
-        }
-      end
-      local conf = require('telescope.config').values
-      picker {
-        vimgrep_arguments = vim.tbl_flatten {
-          conf.vimgrep_arguments,
-          additional_vimgrep_arguments,
-        },
-      }
-    end
-
-    --- Grep the string under the cursor, filtering for the current file type
-    local function grep_string_current_file_type()
-      grep_current_file_type(builtin.grep_string)
-    end
-
-    --- Live grep, filtering for the current file type
-    local function live_grep_current_file_type()
-      grep_current_file_type(builtin.live_grep)
-    end
-
-    --- Like live_grep, but fuzzy (and slower)
-    local function fuzzy_grep(opts)
-      opts = vim.tbl_extend('error', opts or {}, { search = '', prompt_title = 'Fuzzy grep' })
-      builtin.grep_string(opts)
-    end
-
-    local function fuzzy_grep_current_file_type()
-      grep_current_file_type(fuzzy_grep)
-    end
-
-    vim.keymap.set('n', '<M-p>', builtin.oldfiles, { desc = '[telescope] old files' })
-    vim.keymap.set('n', '<leader>tf', fuzzy_grep, { desc = '[t]elescope [f]uzzy grep' })
-    vim.keymap.set('n', '<M-f>', fuzzy_grep_current_file_type, { desc = '[telescope] fuzzy grep filetype' })
-    vim.keymap.set('n', '<M-g>', live_grep_current_file_type, { desc = '[telescope] live grep filetype' })
-    vim.keymap.set(
-      'n',
-      '<leader>t*',
-      grep_string_current_file_type,
-      { desc = '[t]elescope grep current string [*] in current filetype' }
-    )
-    vim.keymap.set('n', '<leader>*', builtin.grep_string, { desc = '[telescope] grep current string [*]' })
-    vim.keymap.set('n', '<leader>tg', project_files, { desc = '[t]elescope project files [g]' })
-    vim.keymap.set('n', '<leader>tc', builtin.quickfix, { desc = '[t]elescope quickfix list [c]' })
-    vim.keymap.set('n', '<leader>tq', builtin.command_history, { desc = '[t]elescope command history [q]' })
-    vim.keymap.set('n', '<leader>tl', builtin.loclist, { desc = '[t]elescope [l]oclist' })
-    vim.keymap.set('n', '<leader>tr', builtin.registers, { desc = '[t]elescope [r]egisters' })
-    vim.keymap.set('n', '<leader>tbb', builtin.buffers, { desc = '[t]elescope [b]uffers [b]' })
-    vim.keymap.set(
-      'n',
-      '<leader>tbf',
-      builtin.current_buffer_fuzzy_find,
-      { desc = '[t]elescope current [b]uffer [f]uzzy find' }
-    )
-    vim.keymap.set('n', '<leader>ss', builtin.lsp_document_symbols, { desc = 'telescope lsp document symbols' })
-    vim.keymap.set('n', '<leader>sS', builtin.lsp_dynamic_workspace_symbols,
-      { desc = 'telescope lsp dynamic workspace symbols' })
-    vim.keymap.set("n", "<leader>tn", function()
-      require("telescope").extensions.notify.notify()
-    end, { desc = "telescope notifications" })
 
     telescope.setup {
       defaults = {
