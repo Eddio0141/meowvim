@@ -54,6 +54,7 @@ let
     cord-nvim
     nvim-spectre
     crates-nvim
+    catppuccin-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -118,7 +119,6 @@ let
         };
       })
       nvim-notify
-      catppuccin-nvim
     ]
     # add the lazily loaded plugins
     ++ (map (
