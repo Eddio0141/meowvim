@@ -2,6 +2,9 @@ return {
   "nvim-cmp",
   event = "DeferredUIEnter",
   after = function()
+    require("lz.n").trigger_load("lspkind-nvim")
+    require("lz.n").trigger_load("luasnip")
+
     local cmp = require('cmp')
     local lspkind = require('lspkind')
     local luasnip = require('luasnip')

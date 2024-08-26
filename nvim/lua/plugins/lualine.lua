@@ -5,6 +5,7 @@ return {
     -- re-enable status line since lualine has loaded
     vim.o.laststatus = 2
 
+    require("lz.n").trigger_load("nvim-navic")
     local navic = require('nvim-navic')
     navic.setup {}
 

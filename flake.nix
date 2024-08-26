@@ -17,6 +17,11 @@
       url = "github:jinh0/eyeliner.nvim";
       flake = false;
     };
+    # TODO: till 2.3.0 reaches unstable channel
+    lz-n = {
+      url = "github:nvim-neorocks/lz.n";
+      flake = false;
+    };
   };
 
   outputs =

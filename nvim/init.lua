@@ -112,7 +112,6 @@ cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
 vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
 
 local lz_n = require("lz.n")
-lz_n.register_handler(require("user.on_require"))
 lz_n.load("plugins")
 
 vim.cmd.colorscheme("catppuccin-macchiato")
