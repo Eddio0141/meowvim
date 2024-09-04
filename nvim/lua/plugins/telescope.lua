@@ -69,7 +69,8 @@ return {
     { '<leader>tg',      function() project_files() end,                                              desc = '[t]elescope project files [g]' },
     { "<leader>tn",      function() require("telescope").extensions.notify.notify() end,              desc = "telescope notifications" },
     { "gr",              function() require("telescope.builtin").lsp_references() end,                desc = "go to references" },
-    { "<leader>ca",      vim.lsp.buf.code_action,                                                     desc = "lsp code action" }
+    { "<leader>ca",      vim.lsp.buf.code_action,                                                     desc = "lsp code action" },
+    { "<leader>sK",      function() require("telescope.builtin").keymaps() end,                       desc = "search for keymap" }
   },
   after = function()
     local telescope = require('telescope')
