@@ -1,3 +1,3 @@
 return {
-  "lspkind-nvim",
+  "lspkind.nvim",
 }
