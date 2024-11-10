@@ -210,11 +210,11 @@ keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "quit all" })
 
 keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "clear and escape hlsearch" })
 
--- cmdline movement
-keymap.set("c", "<c-h>", "<left>", { desc = "cmdline left" })
-keymap.set("c", "<c-l>", "<right>", { desc = "cmdline right" })
-keymap.set("c", "<c-k>", "<up>", { desc = "cmdline up" })
-keymap.set("c", "<c-j>", "<down>", { desc = "cmdline down" })
+-- movement
+keymap.set({ "c", "t" }, "<c-h>", "<left>", { desc = "move left" })
+keymap.set({ "c", "t" }, "<c-l>", "<right>", { desc = "move right" })
+keymap.set({ "c", "t" }, "<c-k>", "<up>", { desc = "move up" })
+keymap.set({ "c", "t" }, "<c-j>", "<down>", { desc = "move down" })
 
 keymap.set("n", "<leader>fn", "<cmd>enew<cr>", { desc = "new file" })
 
