@@ -7,7 +7,11 @@ return {
   after = function()
     require("toggleterm").setup({
       open_mapping = [[<c-/>]],
-      direction = "float"
+      direction = "float",
+      float_opts = {
+        border = "curved",
+        title_pos = "left",
+      },
     })
 
     vim.api.nvim_create_autocmd("TermOpen", {
