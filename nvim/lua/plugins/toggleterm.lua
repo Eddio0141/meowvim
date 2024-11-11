@@ -20,7 +20,7 @@ return {
         end
 
         local opts = { buffer = 0 }
-        vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+        vim.keymap.set('t', '<c-esc>', [[<C-\><C-n>]], opts)
         -- vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
       end
     })
