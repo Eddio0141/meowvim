@@ -19,8 +19,8 @@ return {
     { "<leader>du", function() require("dap").toggle() end,            desc = "Toggle UI" },
   },
   after = function()
-    require("lz.n").trigger_load("nvim-dap-virtual-text")
-    require("lz.n").trigger_load("nvim-dap-ui")
+    vim.cmd.packadd("nvim-dap-virtual-text")
+    vim.cmd.packadd("nvim-dap-ui")
 
     local dap = require("dap")
 
