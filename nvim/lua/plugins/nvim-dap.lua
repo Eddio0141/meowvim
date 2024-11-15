@@ -48,5 +48,9 @@ return {
 
     dap.configurations.c = dap.configurations.cpp
     dap.configurations.rust = dap.configurations.cpp
+
+    -- set up extensions
+    require("dapui").setup()
+    require("nvim-dap-virtual-text").setup {}
   end
 }
