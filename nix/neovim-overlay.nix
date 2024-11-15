@@ -55,6 +55,10 @@ let
     nvim-spectre
     crates-nvim
     catppuccin-nvim
+    nvim-dap
+    nvim-dap-virtual-text
+    nvim-dap-ui
+    neotest
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -141,6 +145,14 @@ let
     nixd
     nixfmt-rfc-style
     gnused
+    (symlinkJoin {
+      name = "codelldb";
+      paths = [ vscode-extensions.vadimcn.vscode-lldb ];
+      postBuild = ''
+        mkdir -p $out/bin
+        ln -s $out/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb $out/bin/codelldb
+      '';
+    })
   ];
 in
 {
