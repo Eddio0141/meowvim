@@ -16,7 +16,7 @@ return {
     { "<leader>dO", function() require("dap").step_out() end,          desc = "Step out" },
     { "<leader>dt", function() require("dap").terminate() end,         desc = "Terminate" },
     { "<leader>dr", function() require("dap").repl.open() end,         desc = "Open REPL" },
-    { "<leader>du", function() require("dap").toggle() end,            desc = "Toggle UI" },
+    { "<leader>du", function() require("dapui").toggle() end,          desc = "Toggle UI" },
   },
   after = function()
     vim.cmd.packadd("nvim-dap-virtual-text")
