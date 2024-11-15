@@ -24,15 +24,13 @@ return {
 
     local dap = require("dap")
 
-    dap.adapters = {
-      codelldb = {
-        type = "server",
-        host = "127.0.0.1",
-        port = "${port}",
-        executable = {
-          command = vim.fn.exepath("codelldb"),
-          args = { "--port", "${port}" }
-        }
+    dap.adapters.codelldb = {
+      type = "server",
+      host = "127.0.0.1",
+      port = "${port}",
+      executable = {
+        command = vim.fn.exepath("codelldb"),
+        args = { "--port", "${port}" }
       }
     }
     dap.configurations = {
