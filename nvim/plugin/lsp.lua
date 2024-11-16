@@ -40,6 +40,8 @@ require 'lspconfig'.omnisharp.setup {
       -- Only run analyzers against open files when 'enableRoslynAnalyzers' is
       -- true
       AnalyzeOpenDocumentsOnly = true,
+      -- Decompiler
+      EnableDecompilationSupport = true
     },
     Sdk = {
       -- Specifies whether to include preview versions of the .NET SDK when
@@ -47,4 +49,13 @@ require 'lspconfig'.omnisharp.setup {
       IncludePrereleases = true,
     },
   },
+
+  on_attach = function()
+    local keys = vim.keymap
+    -- keys.set("n", "gr", function() require("omnisharp_extended").telescope_lsp_references() end, { noremap = true })
+    -- options are supported as well
+    -- nnoremap gd <cmd>lua require('omnisharp_extended').telescope_lsp_definition({ jump_type = "vsplit" })<cr>
+    -- nnoremap <leader>D <cmd>lua require('omnisharp_extended').telescope_lsp_type_definition()<cr>
+    -- nnoremap gi <cmd>lua require('omnisharp_extended').telescope_lsp_implementation()<cr>
+  end
 }
