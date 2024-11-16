@@ -3,8 +3,11 @@ if vim.g.lsp_config_setup then
 end
 vim.g.lsp_config_setup = true
 
+local omnisharp_bin = vim.fn.exepath("OmniSharp")
+local pid = vim.fn.getpid()
+
 require 'lspconfig'.omnisharp.setup {
-  cmd = { "dotnet" },
+  cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
 
   settings = {
     FormattingOptions = {
