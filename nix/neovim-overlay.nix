@@ -72,8 +72,7 @@ let
   all-plugins =
     with pkgs.vimPlugins;
     [
-      # lz-n
-      (mkNvimPlugin inputs.lz-n "lz.n")
+      lz-n
       nvim-treesitter.withAllGrammars
       # cmp extensions
       cmp_luasnip # snippets autocompletion extension for nvim-cmp | https://github.com/saadparwaiz1/cmp_luasnip/
