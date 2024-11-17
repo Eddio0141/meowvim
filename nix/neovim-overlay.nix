@@ -59,6 +59,7 @@ let
     nvim-dap-virtual-text
     nvim-dap-ui
     neotest
+    markdown-preview-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as

@@ -151,22 +151,6 @@
         "type": "github"
       }
     },
-    "lz-n": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1730598851,
-        "narHash": "sha256-L7og7ZTo5Soyn6pvBHkJcgGuON96eV0V5QC3J1uz/ko=",
-        "owner": "nvim-neorocks",
-        "repo": "lz.n",
-        "rev": "c8675c983e0682c49a13f17fc7ff9353bcb32120",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-neorocks",
-        "repo": "lz.n",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1718714799,
@@ -232,7 +216,6 @@
         "eyeliner-nvim": "eyeliner-nvim",
         "flake-utils": "flake-utils",
         "gen-luarc": "gen-luarc",
-        "lz-n": "lz-n",
         "nixpkgs": "nixpkgs_2"
       }
     },
