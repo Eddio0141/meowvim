@@ -17,15 +17,19 @@ return {
     vim.api.nvim_create_autocmd("TermOpen", {
       pattern = "term://*toggleterm#*",
       callback = function()
-        -- don't do anything if this is lazygit
+        local opts = { buffer = 0 }
+        local keymap = vim.keymap
+
+        -- lazy git has its own special keys
         local bufname = vim.api.nvim_buf_get_name(0)
         if string.match(bufname, "^term://.*:lazygit;#toggleterm#.*$") then
+          keymap.set("t", "<c-j>", "<c-j>", opts)
+          keymap.set("t", "<c-k>", "<c-k>", opts)
           return
         end
 
-        local opts = { buffer = 0 }
-        vim.keymap.set('t', '<c-esc>', [[<C-\><C-n>]], opts)
-        -- vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+        keymap.set('t', '<c-esc>', [[<C-\><C-n>]], opts)
+        -- keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
       end
     })
 
