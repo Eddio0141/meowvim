@@ -42,6 +42,7 @@ let
     # ^ telescope and extensions
     mini-nvim
     luasnip # snippets | https://github.com/l3mon4d3/luasnip/
+    friendly-snippets
     lspkind-nvim # vscode-like LSP pictograms | https://github.com/onsails/lspkind.nvim/
     # nvim-cmp (autocompletion)
     nvim-cmp # https://github.com/hrsh7th/nvim-cmp
