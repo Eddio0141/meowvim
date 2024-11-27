@@ -63,3 +63,4 @@ lspconfig.omnisharp.setup {
 }
 
 lspconfig.ts_ls.setup {}
+lspconfig.superhtml.setup {}
