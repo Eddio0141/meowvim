@@ -23,7 +23,6 @@ let
   # lazily loaded plugins
   lazy-plugins = with pkgs.vimPlugins; [
     bufferline-nvim
-    neo-tree-nvim
     nvim-autopairs
     (mkNvimPlugin inputs.eyeliner-nvim "eyeliner.nvim") # NOTE: temporary fix for load error
     # eyeliner-nvim # Highlights unique characters for f/F and t/T motions | https://github.com/jinh0/eyeliner.nvim
@@ -60,6 +59,7 @@ let
     nvim-dap-virtual-text
     nvim-dap-ui
     neotest
+    yazi-nvim
     markdown-preview-nvim
   ];
 
