@@ -63,4 +63,5 @@ lspconfig.omnisharp.setup {
 }
 
 lspconfig.denols.setup {}
-lspconfig.superhtml.setup {}
+lspconfig.html.setup {}
+lspconfig.cssls.setup {}
