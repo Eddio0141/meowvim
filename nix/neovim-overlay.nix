@@ -41,6 +41,7 @@ let
     # ^ telescope and extensions
     mini-nvim
     luasnip # snippets | https://github.com/l3mon4d3/luasnip/
+    friendly-snippets
     lspkind-nvim # vscode-like LSP pictograms | https://github.com/onsails/lspkind.nvim/
     # nvim-cmp (autocompletion)
     nvim-cmp # https://github.com/hrsh7th/nvim-cmp
@@ -59,6 +60,7 @@ let
     nvim-dap-ui
     neotest
     yazi-nvim
+    markdown-preview-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -72,8 +74,7 @@ let
   all-plugins =
     with pkgs.vimPlugins;
     [
-      # lz-n
-      (mkNvimPlugin inputs.lz-n "lz.n")
+      lz-n
       nvim-treesitter.withAllGrammars
       # cmp extensions
       cmp_luasnip # snippets autocompletion extension for nvim-cmp | https://github.com/saadparwaiz1/cmp_luasnip/
@@ -124,6 +125,7 @@ let
         };
       })
       nvim-notify
+      nvim-lspconfig
     ]
     # add the lazily loaded plugins
     ++ (map (
@@ -153,6 +155,7 @@ let
         ln -s $out/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb $out/bin/codelldb
       '';
     })
+    omnisharp-roslyn
   ];
 in
 {
