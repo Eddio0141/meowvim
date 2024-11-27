@@ -6,7 +6,9 @@ vim.g.lsp_config_setup = true
 local omnisharp_bin = vim.fn.exepath("OmniSharp")
 local pid = vim.fn.getpid()
 
-require 'lspconfig'.omnisharp.setup {
+local lspconfig = require("lspconfig")
+
+lspconfig.omnisharp.setup {
   cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
 
   settings = {
@@ -59,3 +61,5 @@ require 'lspconfig'.omnisharp.setup {
     -- nnoremap gi <cmd>lua require('omnisharp_extended').telescope_lsp_implementation()<cr>
   end
 }
+
+lspconfig.ts_ls.setup {}
