@@ -48,6 +48,7 @@ opt.smartcase = true
 opt.ignorecase = true
 opt.wrap = true
 opt.clipboard = "unnamedplus"
+opt.title = true
 
 -- wait for lualine to load and replace it
 opt.laststatus = 0
