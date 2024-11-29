@@ -49,6 +49,7 @@ opt.ignorecase = true
 opt.wrap = true
 opt.clipboard = "unnamedplus"
 opt.title = true
+opt.titlestring = vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. " - meowvim!"
 
 -- wait for lualine to load and replace it
 opt.laststatus = 0
