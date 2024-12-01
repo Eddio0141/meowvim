@@ -2,8 +2,27 @@ return {
   "nvim-cmp",
   event = "DeferredUIEnter",
   after = function()
-    require("lz.n").trigger_load("lspkind.nvim")
-    require("lz.n").trigger_load("luasnip")
+    local lz = require("lz.n")
+    local rtp = require("rtp_nvim")
+
+    lz.trigger_load("lspkind.nvim")
+    lz.trigger_load("luasnip")
+
+    local function trigger_load_with_after(plugin_name)
+      for _, dir in ipairs(vim.opt.packpath:get()) do
+        local glob = vim.fs.joinpath("pack", "*", "opt", plugin_name)
+        local plugin_dirs = vim.fn.globpath(dir, glob, nil, true, true)
+        if not vim.tbl_isempty(plugin_dirs) then
+          lz.trigger_load(plugin_name)
+          rtp.source_after_plugin_dir(plugin_dirs[1])
+          return
+        end
+      end
+    end
+
+    local cmp_source_list = { "cmp_luasnip", "cmp-nvim-lsp", "cmp-nvim-lsp-signature-help", "cmp-buffer", "cmp-path",
+      "cmp-nvim-lua", "cmp-cmdline", "cmp-cmdline-history" }
+    vim.iter(cmp_source_list):each(trigger_load_with_after)
 
     local cmp = require('cmp')
     local lspkind = require('lspkind')
