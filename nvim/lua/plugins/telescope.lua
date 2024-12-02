@@ -94,6 +94,16 @@ return {
       },
     }
 
+    local lz = require("lz.n")
+    local function trouble_open(prompt_bufnr, opts)
+      lz.trigger_load("trouble.nvim")
+      require("trouble.sources.telescope").open(prompt_bufnr, opts)
+    end
+    local function trouble_add(prompt_bufnr, opts)
+      lz.trigger_load("trouble.nvim")
+      require("trouble.sources.telescope").add(prompt_bufnr, opts)
+    end
+
     telescope.setup {
       defaults = {
         path_display = {
@@ -103,13 +113,14 @@ return {
         layout_config = layout_config,
         mappings = {
           i = {
-            ['<C-q>'] = actions.send_to_qflist,
-            ['<C-l>'] = actions.send_to_loclist,
-            -- ['<esc>'] = actions.close,
+            ['<C-q>'] = trouble_open,
+            ['<C-l>'] = trouble_add,
             ['<C-s>'] = actions.cycle_previewers_next,
             ['<C-a>'] = actions.cycle_previewers_prev,
           },
           n = {
+            ['<C-q>'] = trouble_open,
+            ['<C-l>'] = trouble_add,
             q = actions.close,
           },
         },
