@@ -54,6 +54,13 @@ return {
     dap.configurations.c = dap.configurations.cpp
     dap.configurations.rust = dap.configurations.cpp
 
+    -- signs
+    vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
+    vim.fn.sign_define("DapBreakpointCondition", { text = "🔬", texthl = "", linehl = "", numhl = "" })
+    vim.fn.sign_define("DapLogPoint", { text = "📝", texthl = "", linehl = "", numhl = "" })
+    vim.fn.sign_define("DapStopped", { text = "➤", texthl = "", linehl = "", numhl = "" })
+    vim.fn.sign_define("DapBreakpointRejected", { text = "✖", texthl = "", linehl = "", numhl = "" })
+
     -- set up extensions
     require("dapui").setup()
     require("nvim-dap-virtual-text").setup {}
