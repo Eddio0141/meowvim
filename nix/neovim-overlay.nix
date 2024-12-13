@@ -156,7 +156,6 @@ let
         ln -s $out/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb $out/bin/codelldb
       '';
     })
-    omnisharp-roslyn
   ];
 in
 {
