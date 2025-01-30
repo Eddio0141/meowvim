@@ -43,18 +43,6 @@ let
     luasnip # snippets | https://github.com/l3mon4d3/luasnip/
     friendly-snippets
     lspkind-nvim # vscode-like LSP pictograms | https://github.com/onsails/lspkind.nvim/
-    # nvim-cmp (autocompletion)
-    nvim-cmp # https://github.com/hrsh7th/nvim-cmp
-    # cmp extensions
-    cmp_luasnip # snippets autocompletion extension for nvim-cmp | https://github.com/saadparwaiz1/cmp_luasnip/
-    cmp-nvim-lsp # LSP as completion source | https://github.com/hrsh7th/cmp-nvim-lsp/
-    cmp-nvim-lsp-signature-help # https://github.com/hrsh7th/cmp-nvim-lsp-signature-help/
-    cmp-buffer # current buffer as completion source | https://github.com/hrsh7th/cmp-buffer/
-    cmp-path # file paths as completion source | https://github.com/hrsh7th/cmp-path/
-    cmp-nvim-lua # neovim lua API as completion source | https://github.com/hrsh7th/cmp-nvim-lua/
-    cmp-cmdline # cmp command line suggestions
-    cmp-cmdline-history # cmp command line history suggestions
-    # ^ cmp extensions
     comment-nvim
     noice-nvim
     leap-nvim
@@ -127,6 +115,7 @@ let
       nvim-notify
       nvim-lspconfig
       rtp-nvim
+      blink-cmp
     ]
     # add the lazily loaded plugins
     ++ (map (
