@@ -8,9 +8,10 @@ return {
   after = function()
     require("trouble").setup({
       preview = {
-        type = "float",
+        -- type = "float",
         border = "rounded",
       },
+      auto_preview = false,
     })
   end
 }
