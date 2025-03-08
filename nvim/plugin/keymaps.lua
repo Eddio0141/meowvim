@@ -202,3 +202,7 @@ keymap.set("n", "<leader>fn", "<cmd>enew<cr>", { desc = "new file" })
 -- buffer navigation
 keymap.set("n", "<s-h>", "<cmd>bprevious<cr>", { desc = "previous buffer" })
 keymap.set("n", "<s-l>", "<cmd>bnext<cr>", { desc = "previous buffer" })
+
+-- move line
+keymap.set("n", "<m-j>", "<cmd>m +1<cr>", { desc = "move line down" })
+keymap.set("n", "<m-k>", "<cmd>m -2<cr>", { desc = "move line up" })
