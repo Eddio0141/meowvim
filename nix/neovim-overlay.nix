@@ -19,8 +19,8 @@ let
 
   # This is the helper function that builds the Neovim derivation.
   mkNeovim = pkgs.callPackage ./mkNeovim.nix {
-      inherit (pkgs-locked) wrapNeovimUnstable neovimUtils;
-    };
+    inherit (pkgs-locked) wrapNeovimUnstable neovimUtils;
+  };
 
   # lazily loaded plugins
   lazy-plugins = with pkgs.vimPlugins; [
@@ -51,7 +51,7 @@ let
     lualine-nvim # Status line | https://github.com/nvim-lualine/lualine.nvim/
     nvim-navic # Add LSP location to lualine | https://github.com/SmiteshP/nvim-navic
     which-key-nvim
-    cord-nvim
+    inputs.nixpkgs-master.legacyPackages.x86_64-linux.vimPlugins.cord-nvim
     nvim-spectre
     crates-nvim
     catppuccin-nvim
