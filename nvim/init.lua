@@ -108,3 +108,10 @@ local lz_n = require("lz.n")
 lz_n.load("plugins")
 
 vim.cmd.colorscheme("catppuccin-macchiato")
+
+-- custom file types
+vim.filetype.add({
+  extension = {
+    hltas = "hltas"
+  }
+})
