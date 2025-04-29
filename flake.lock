@@ -179,21 +179,6 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/eb9ceca17df2ea50a250b6b27f7bf6ab0186f198.tar.gz"
       }
     },
-    "nixpkgs-master": {
-      "locked": {
-        "lastModified": 1744035660,
-        "narHash": "sha256-bia00ydEdR+0wqNN/TPTLQisgndMCY6NVSGW0uPmOy0=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "0bd982a343634fb29bb14a114592110125ef9128",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1720386169,
@@ -231,8 +216,7 @@
         "eyeliner-nvim": "eyeliner-nvim",
         "flake-utils": "flake-utils",
         "gen-luarc": "gen-luarc",
-        "nixpkgs": "nixpkgs_2",
-        "nixpkgs-master": "nixpkgs-master"
+        "nixpkgs": "nixpkgs_2"
       }
     },
     "systems": {

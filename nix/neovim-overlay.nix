@@ -51,7 +51,7 @@ let
     lualine-nvim # Status line | https://github.com/nvim-lualine/lualine.nvim/
     nvim-navic # Add LSP location to lualine | https://github.com/SmiteshP/nvim-navic
     which-key-nvim
-    inputs.nixpkgs-master.legacyPackages.x86_64-linux.vimPlugins.cord-nvim
+    cord-nvim
     nvim-spectre
     crates-nvim
     catppuccin-nvim
