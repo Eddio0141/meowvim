@@ -43,7 +43,7 @@ configs.setup {
       },
       selection_modes = {
         ['@parameter.outer'] = 'v', -- charwise
-        ['@function.outer'] = 'V', -- linewise
+        ['@function.outer'] = 'V',  -- linewise
         ['@class.outer'] = '<c-v>', -- blockwise
       },
     },
@@ -76,13 +76,13 @@ configs.setup {
         ['[P'] = '@parameter.outer',
       },
     },
-    lsp_interop = {
-      enable = true,
-      peek_definition_code = {
-        ['df'] = '@function.outer',
-        ['dF'] = '@class.outer',
-      },
-    },
+    -- lsp_interop = {
+    --   enable = true,
+    --   peek_definition_code = {
+    --     ['df'] = '@function.outer',
+    --     ['dF'] = '@class.outer',
+    --   },
+    -- },
   },
 }
 
