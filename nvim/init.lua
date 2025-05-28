@@ -115,3 +115,7 @@ vim.filetype.add({
     hltas = "hltas"
   }
 })
+
+vim.diagnostic.config({
+  virtual_lines = true
+})
