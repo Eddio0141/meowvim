@@ -43,6 +43,7 @@ local servers = {
       Lua = {}
     }
   },
+  basedpyright = {},
 }
 
 local blink = require("blink.cmp")
