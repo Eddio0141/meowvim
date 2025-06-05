@@ -6,6 +6,7 @@ return {
     conform.setup({
       formatters_by_ft = {
         nix = { "nixfmt" },
+        python = { "ruff" },
       },
       format_on_save = {
         timeout_ms = 500,
