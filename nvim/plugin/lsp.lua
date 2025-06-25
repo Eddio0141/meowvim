@@ -3,8 +3,6 @@ if vim.g.lsp_config_setup then
 end
 vim.g.lsp_config_setup = true
 
-local lspconfig = require("lspconfig")
-
 local servers = {
   denols = {},
   html = {},
@@ -51,6 +49,8 @@ local servers = {
 local blink = require("blink.cmp")
 for server, config in pairs(servers) do
   config.capabilities = blink.get_lsp_capabilities(config.capabilities)
-  vim.lsp.config(server, config)
+  if #config > 0 then
+    vim.lsp.config(server, config)
+  end
   vim.lsp.enable(server)
 end
