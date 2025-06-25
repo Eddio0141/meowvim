@@ -118,7 +118,6 @@ let
       nvim-lspconfig
       rtp-nvim
       blink-cmp
-      hardtime-nvim # advice on good vim bind use
     ]
     # add the lazily loaded plugins
     ++ (map (
