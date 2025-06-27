@@ -41,9 +41,7 @@ local servers = {
       Lua = {}
     }
   },
-  -- python
-  basedpyright = {},
-  pyrefly = {},
+  pylsp = {}
 }
 
 local blink = require("blink.cmp")
