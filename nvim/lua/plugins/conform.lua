@@ -16,6 +16,11 @@ return {
         timeout_ms = 500,
         lsp_format = "fallback",
       },
+      formatters = {
+        deno_fmt = {
+          append_args = { "--prose-wrap", "preserve" },
+        },
+      },
     })
 
     -- for the first time formatting
