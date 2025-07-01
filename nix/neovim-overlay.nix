@@ -30,7 +30,6 @@ let
     # eyeliner-nvim # Highlights unique characters for f/F and t/T motions | https://github.com/jinh0/eyeliner.nvim
     inc-rename-nvim
     persistence-nvim
-    toggleterm-nvim
     conform-nvim
     trouble-nvim
     nvim-surround # https://github.com/kylechui/nvim-surround/

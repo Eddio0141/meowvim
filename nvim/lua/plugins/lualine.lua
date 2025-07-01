@@ -77,7 +77,7 @@ return {
       --   lualine_z = {},
       -- },
       winbar = {},
-      extensions = { 'fugitive', 'fzf', 'toggleterm', 'quickfix' },
+      extensions = { 'fugitive', 'fzf', 'quickfix' },
     }
   end
 }
