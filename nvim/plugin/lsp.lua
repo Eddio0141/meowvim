@@ -41,7 +41,8 @@ local servers = {
       Lua = {}
     }
   },
-  pylsp = {}
+  pylsp = {},
+  mojo = {}
 }
 
 local blink = require("blink.cmp")
