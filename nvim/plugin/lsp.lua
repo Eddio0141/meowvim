@@ -43,7 +43,8 @@ local servers = {
   },
   pylsp = {},
   mojo = {},
-  ccls = {}
+  ccls = {},
+  qmlls = {}
 }
 
 local blink = require("blink.cmp")
