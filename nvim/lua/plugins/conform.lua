@@ -1,6 +1,7 @@
 return {
   "conform.nvim",
   event = "BufWritePre",
+  cmd = { "FormatEnable", "FormatDisable" },
   after = function()
     local conform = require("conform")
     conform.setup({
