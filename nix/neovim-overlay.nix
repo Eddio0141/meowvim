@@ -60,6 +60,7 @@ let
     neotest
     yazi-nvim
     markdown-preview-nvim
+    marks-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
