@@ -5,7 +5,13 @@ return {
     { "<leader>r", "<cmd>Yazi<cr>",     desc = "Open Yazi on current file" },
   },
   after = function()
-    local yazi = require("yazi")
-    yazi.setup()
+    require("yazi").setup {
+      ---@diagnostic disable-next-line: missing-fields
+      hooks = {
+        on_yazi_ready = function(_, _, process_api)
+          process_api:emit_to_yazi({ "hidden", "show" })
+        end
+      }
+    }
   end
 }
