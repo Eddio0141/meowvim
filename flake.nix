@@ -17,6 +17,10 @@
       url = "github:jinh0/eyeliner.nvim";
       flake = false;
     };
+    easy-dotnet-source = {
+      url = "github:GustavEikaas/easy-dotnet-server";
+      flake = false;
+    };
   };
 
   outputs =

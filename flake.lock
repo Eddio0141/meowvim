@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "easy-dotnet-source": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1759350110,
+        "narHash": "sha256-0kR0aj8yEmCsQNbn+JlvDFvueqJX1O+6WrVDw0asx3o=",
+        "owner": "GustavEikaas",
+        "repo": "easy-dotnet-server",
+        "rev": "7b978b73b29e93df0cd4c3d9fb498067efd2b0fe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "GustavEikaas",
+        "repo": "easy-dotnet-server",
+        "type": "github"
+      }
+    },
     "eyeliner-nvim": {
       "flake": false,
       "locked": {
@@ -213,6 +229,7 @@
     },
     "root": {
       "inputs": {
+        "easy-dotnet-source": "easy-dotnet-source",
         "eyeliner-nvim": "eyeliner-nvim",
         "flake-utils": "flake-utils",
         "gen-luarc": "gen-luarc",
