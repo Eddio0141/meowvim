@@ -118,6 +118,7 @@ let
       rtp-nvim
       blink-cmp
       leap-nvim
+      easy-dotnet-nvim
     ]
     # add the lazily loaded plugins
     ++ (map (
@@ -147,6 +148,8 @@ let
         ln -s $out/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb $out/bin/codelldb
       '';
     })
+    (pkgs.callPackage ./easy-dotnet-server { })
+    jq # easy dotnet requires it, probably
   ];
 in
 {
