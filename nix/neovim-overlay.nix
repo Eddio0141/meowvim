@@ -60,6 +60,16 @@ let
     yazi-nvim
     markdown-preview-nvim
     marks-nvim
+    (easy-dotnet-nvim.overrideAttrs (
+      prev:
+      let
+        new-patches = [ ./easy-dotnet.nvim.patch ];
+      in
+      {
+        patches = if prev ? "patches" then prev.patches ++ new-patches else new-patches;
+      }
+    ))
+    roslyn-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
@@ -147,6 +157,7 @@ let
         ln -s $out/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb $out/bin/codelldb
       '';
     })
+    (pkgs.callPackage ./easy-dotnet-server { })
   ];
 in
 {
