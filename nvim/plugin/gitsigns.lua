@@ -59,6 +59,9 @@ vim.schedule(function()
         gs.diffthis(vim.fn.input("Revision: "))
       end, { desc = 'git [h] [D]iff ~' })
       map('n', '<leader>td', gs.toggle_deleted, { desc = 'git [t]oggle [d]eleted' })
+      map("n", "<leader>hw", function()
+        gs.show(vim.fn.input("Revision: "))
+      end, { desc = "git show buffer revision" })
       -- Text object
       map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'git stage buffer' })
     end,
