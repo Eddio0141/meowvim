@@ -56,7 +56,7 @@ vim.schedule(function()
       map('n', '<leader>glb', gs.toggle_current_line_blame, { desc = '[g]it toggle current [l]ine [b]lame' })
       map('n', '<leader>hd', gs.diffthis, { desc = 'git [h] [d]iff this' })
       map('n', '<leader>hD', function()
-        gs.diffthis('~')
+        gs.diffthis(vim.fn.input("Revision: "))
       end, { desc = 'git [h] [D]iff ~' })
       map('n', '<leader>td', gs.toggle_deleted, { desc = 'git [t]oggle [d]eleted' })
       -- Text object
