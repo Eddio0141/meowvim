@@ -59,8 +59,9 @@ vim.api.nvim_create_autocmd('BufEnter', {
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
-    local bufnr = ev.buf
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    local bufnr    = ev.buf
+    local client   = vim.lsp.get_client_by_id(ev.data.client_id)
+    local filetype = vim.bo.filetype
 
     -- Attach plugins
     require('nvim-navic').attach(client, bufnr)
@@ -76,7 +77,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap.set('n', 'gD', vim.lsp.buf.declaration, desc('lsp [g]o to [D]eclaration'))
     keymap.set('n', 'gd', vim.lsp.buf.definition, desc('lsp [g]o to [d]efinition'))
     keymap.set('n', '<space>gt', vim.lsp.buf.type_definition, desc('lsp [g]o to [t]ype definition'))
-    keymap.set('n', 'K', vim.lsp.buf.hover, desc('[lsp] hover'))
+    if filetype == "rust" then
+      keymap.set('n', 'K', function() vim.cmd.RustLsp({ 'hover', 'actions' }) end, desc('[lsp] hover'))
+    else
+      keymap.set('n', 'K', vim.lsp.buf.hover, desc('[lsp] hover'))
+    end
     keymap.set('n', '<space>pd', peek_definition, desc('lsp [p]eek [d]efinition'))
     keymap.set('n', '<space>pt', peek_type_definition, desc('lsp [p]eek [t]ype definition'))
     keymap.set('n', 'gi', vim.lsp.buf.implementation, desc('lsp [g]o to [i]mplementation'))
