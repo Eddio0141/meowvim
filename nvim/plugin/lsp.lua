@@ -41,7 +41,23 @@ local servers = {
       Lua = {}
     }
   },
-  pylsp = {},
+  pylsp = {
+    settings = {
+      pylsp = {
+        plugins = {
+          pycodestyle = {
+            ignore = { "E501" }
+          },
+          rope_autoimport = {
+            enabled = true,
+            code_actions = {
+              enabled = true
+            }
+          }
+        }
+      }
+    }
+  },
   mojo = {},
   ccls = {},
   qmlls = {}
@@ -50,8 +66,6 @@ local servers = {
 local blink = require("blink.cmp")
 for server, config in pairs(servers) do
   config.capabilities = blink.get_lsp_capabilities(config.capabilities)
-  if #config > 0 then
-    vim.lsp.config(server, config)
-  end
+  vim.lsp.config(server, config)
   vim.lsp.enable(server)
 end
