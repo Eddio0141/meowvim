@@ -107,45 +107,35 @@ end, { expr = true, desc = "expand to current buffer's directory" })
 
 local severity = diagnostic.severity
 
--- keymap.set('n', '<space>e', function()
---   local _, winid = diagnostic.open_float(nil, { scope = 'line' })
---   if not winid then
---     vim.notify('no diagnostics found', vim.log.levels.INFO)
---     return
---   end
---   vim.api.nvim_win_set_config(winid or 0, { focusable = true })
--- end, { noremap = true, silent = true, desc = 'diagnostics floating window' })
-keymap.set('n', '[d', diagnostic.goto_prev, { noremap = true, silent = true, desc = 'previous [d]iagnostic' })
-keymap.set('n', ']d', diagnostic.goto_next, { noremap = true, silent = true, desc = 'next [d]iagnostic' })
+keymap.set('n', '<space>l', function()
+  local _, winid = diagnostic.open_float(nil, { scope = 'line' })
+  if not winid then
+    vim.notify('no diagnostics found', vim.log.levels.INFO)
+    return
+  end
+  vim.api.nvim_win_set_config(winid or 0, { focusable = true })
+end, { noremap = true, silent = true, desc = 'diagnostics floating window' })
+keymap.set('n', '[d', function() diagnostic.jump({ count = -1, float = true }) end,
+  { noremap = true, silent = true, desc = 'previous [d]iagnostic' })
+keymap.set('n', ']d', function() diagnostic.jump({ count = 1, float = true }) end,
+  { noremap = true, silent = true, desc = 'next [d]iagnostic' })
 keymap.set('n', '[e', function()
-  diagnostic.goto_prev {
-    severity = severity.ERROR,
-  }
+  diagnostic.jump({ count = -1, float = true, severity = severity.ERROR })
 end, { noremap = true, silent = true, desc = 'previous [e]rror diagnostic' })
 keymap.set('n', ']e', function()
-  diagnostic.goto_next {
-    severity = severity.ERROR,
-  }
+  diagnostic.jump({ count = 1, float = true, severity = severity.ERROR })
 end, { noremap = true, silent = true, desc = 'next [e]rror diagnostic' })
 keymap.set('n', '[w', function()
-  diagnostic.goto_prev {
-    severity = severity.WARN,
-  }
+  diagnostic.jump({ count = -1, float = true, severity = severity.WARN })
 end, { noremap = true, silent = true, desc = 'previous [w]arning diagnostic' })
 keymap.set('n', ']w', function()
-  diagnostic.goto_next {
-    severity = severity.WARN,
-  }
+  diagnostic.jump({ count = 1, float = true, severity = severity.WARN })
 end, { noremap = true, silent = true, desc = 'next [w]arning diagnostic' })
 keymap.set('n', '[h', function()
-  diagnostic.goto_prev {
-    severity = severity.HINT,
-  }
+  diagnostic.jump({ count = -1, float = true, severity = severity.HINT })
 end, { noremap = true, silent = true, desc = 'previous [h]int diagnostic' })
 keymap.set('n', ']h', function()
-  diagnostic.goto_next {
-    severity = severity.HINT,
-  }
+  diagnostic.jump({ count = 1, float = true, severity = severity.HINT })
 end, { noremap = true, silent = true, desc = 'next [h]int diagnostic' })
 
 local function buf_toggle_diagnostics()
