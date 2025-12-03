@@ -2,14 +2,7 @@ return {
   "nvim-dap",
   keys = {
     { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle breakpoint" },
-    {
-      "<leader>dc",
-      function()
-        require("dap.ext.vscode").load_launchjs(nil, {})
-        require("dap").continue()
-      end,
-      desc = "Continue debugging (or start)"
-    },
+    { "<leader>dc", function() require("dap").continue() end,          desc = "Continue debugging (or start)" },
     { "<leader>dC", function() require("dap").run_to_cursor() end,     desc = "Run to cursor" },
     { "<leader>di", function() require("dap").step_into() end,         desc = "Step into" },
     { "<leader>do", function() require("dap").step_over() end,         desc = "Step over" },
@@ -26,13 +19,8 @@ return {
 
     dap.adapters = {
       codelldb = {
-        type = "server",
-        host = "127.0.0.1",
-        port = "${port}",
-        executable = {
-          command = vim.fn.exepath("codelldb"),
-          args = { "--port", "${port}" }
-        }
+        type = "executable",
+        command = vim.fn.exepath("codelldb"),
       }
     }
 
@@ -44,6 +32,9 @@ return {
           request = "launch",
           program = function()
             return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          end,
+          args = function()
+            return vim.split(vim.fn.input("Args: "), "%s")
           end,
           cwd = "${workspaceFolder}",
           stopOnEntry = false
