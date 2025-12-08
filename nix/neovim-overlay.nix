@@ -46,7 +46,6 @@ let
     lspkind-nvim # vscode-like LSP pictograms | https://github.com/onsails/lspkind.nvim/
     comment-nvim
     noice-nvim
-    leap-nvim
     lualine-nvim # Status line | https://github.com/nvim-lualine/lualine.nvim/
     nvim-navic # Add LSP location to lualine | https://github.com/SmiteshP/nvim-navic
     which-key-nvim
@@ -118,6 +117,7 @@ let
       nvim-lspconfig
       rtp-nvim
       blink-cmp
+      leap-nvim
     ]
     # add the lazily loaded plugins
     ++ (map (
