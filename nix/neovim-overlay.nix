@@ -60,6 +60,7 @@ let
     yazi-nvim
     markdown-preview-nvim
     marks-nvim
+    kitty-scrollback-nvim
   ];
 
   # A plugin can either be a package or an attrset, such as
