@@ -1,7 +1,7 @@
 local providers = {}
 local source_defaults = { "lsp", "path", "snippets", "buffer" }
 
-require("easy-dotnet")
+require("easy-dotnet-setup")
 if vim.g.use_easy_dotnet then
   providers["easy-dotnet"] = {
     name = "easy-dotnet",
