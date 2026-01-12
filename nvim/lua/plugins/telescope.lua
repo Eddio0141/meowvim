@@ -148,6 +148,9 @@ return {
           '--column',
           '--smart-case',
         },
+        file_ignore_patterns = {
+          "^.git/"
+        }
       },
       extensions = {
         fzy_native = {
