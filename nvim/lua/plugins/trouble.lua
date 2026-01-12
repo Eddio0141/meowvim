@@ -5,6 +5,7 @@ return {
     { "<leader>xX", "<cmd>Trouble diagnostics toggle<cr>",              desc = "trouble workspace diagnostics" },
     { "<C-c>",      mode = "n",                                         "<cmd>Trouble qflist toggle<cr>",      desc = "toggle quickfix list" }
   },
+  cmd = "Trouble",
   after = function()
     require("trouble").setup({
       preview = {
