@@ -3,11 +3,11 @@
     "easy-dotnet-source": {
       "flake": false,
       "locked": {
-        "lastModified": 1766874086,
-        "narHash": "sha256-OVf9ad4uAnrDmL6TJ7evMM4k+Ky56RTOl9V6VKE+GH4=",
+        "lastModified": 1768332928,
+        "narHash": "sha256-NjNdMb2dqU+EtnyZSrUZWYwZWR6h3OdL2S/SuL2c5e0=",
         "owner": "GustavEikaas",
         "repo": "easy-dotnet-server",
-        "rev": "0d8a6b0785d276336b1b1d3f5630ee7e30356805",
+        "rev": "3179bfa7aae0bf693928493b2f31c6e2c681d7e5",
         "type": "github"
       },
       "original": {
@@ -213,11 +213,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1766651565,
-        "narHash": "sha256-QEhk0eXgyIqTpJ/ehZKg9IKS7EtlWxF3N7DXy42zPfU=",
+        "lastModified": 1768127708,
+        "narHash": "sha256-1Sm77VfZh3mU0F5OqKABNLWxOuDeHIlcFjsXeeiPazs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3e2499d5539c16d0d173ba53552a4ff8547f4539",
+        "rev": "ffbc9f8cbaacfb331b6017d5a5abb21a492c9a38",
         "type": "github"
       },
       "original": {
