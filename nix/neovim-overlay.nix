@@ -73,7 +73,9 @@ let
     with pkgs.vimPlugins;
     [
       lz-n
-      nvim-treesitter.withAllGrammars
+      # TODO: wait until highlighting isn't broken, and checkhealth actually detects languages
+      nvim-treesitter-legacy.withAllGrammars
+      # nvim-treesitter.withAllGrammars
       # git integration plugins
       gitsigns-nvim # https://github.com/lewis6991/gitsigns.nvim/
       vim-fugitive # https://github.com/tpope/vim-fugitive/
@@ -86,7 +88,8 @@ let
       # ^ language support
       # navigation/editing enhancement plugins
       vim-unimpaired # predefined ] and [ navigation keymaps | https://github.com/tpope/vim-unimpaired/
-      nvim-treesitter-textobjects # https://github.com/nvim-treesitter/nvim-treesitter-textobjects/
+      # TODO: restore when nvim-treesitter.withAllGrammars can be used, check TODO above ^^^
+      # nvim-treesitter-textobjects # https://github.com/nvim-treesitter/nvim-treesitter-textobjects/
       nvim-ts-context-commentstring # https://github.com/joosepalviste/nvim-ts-context-commentstring/
       # ^ navigation/editing enhancement plugins
       # Useful utilities
