@@ -12,13 +12,12 @@
     #   url = "github:Cassin01/wf.nvim";
     #   flake = false;
     # };
-    # TODO: wait for https://github.com/jinh0/eyeliner.nvim/commit/be71bd49d526e1d11dd6580119aca6cef99a4dbc to be in next release
-    eyeliner-nvim = {
-      url = "github:jinh0/eyeliner.nvim";
-      flake = false;
-    };
-    easy-dotnet-source = {
-      url = "github:GustavEikaas/easy-dotnet-server";
+    # easy-dotnet-source = {
+    #   url = "github:GustavEikaas/easy-dotnet-server";
+    #   flake = false;
+    # };
+    easy-dotnet-nvim = {
+      url = "github:GustavEikaas/easy-dotnet.nvim";
       flake = false;
     };
   };

@@ -26,8 +26,6 @@ let
   lazy-plugins = with pkgs.vimPlugins; [
     bufferline-nvim
     nvim-autopairs
-    (mkNvimPlugin inputs.eyeliner-nvim "eyeliner.nvim") # NOTE: temporary fix for load error
-    # eyeliner-nvim # Highlights unique characters for f/F and t/T motions | https://github.com/jinh0/eyeliner.nvim
     inc-rename-nvim
     persistence-nvim
     conform-nvim
@@ -119,7 +117,14 @@ let
       rtp-nvim
       blink-cmp
       leap-nvim
-      easy-dotnet-nvim
+      # easy-dotnet-nvim
+      # (mkNvimPlugin inputs.easy-dotnet-nvim "easy-dotnet.nvim")
+      (pkgs.vimUtils.buildVimPlugin {
+        pname = "easy-dotnet.nvim";
+        src = inputs.easy-dotnet-nvim;
+        version = inputs.easy-dotnet-nvim.lastModifiedDate;
+        doCheck = false;
+      })
     ]
     # add the lazily loaded plugins
     ++ (map (

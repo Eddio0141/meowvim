@@ -1,34 +1,18 @@
 {
   "nodes": {
-    "easy-dotnet-source": {
+    "easy-dotnet-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1768332928,
-        "narHash": "sha256-NjNdMb2dqU+EtnyZSrUZWYwZWR6h3OdL2S/SuL2c5e0=",
+        "lastModified": 1768602117,
+        "narHash": "sha256-XHe9D87uzME75dXboJT+FV1FMsrKoV8z4H6XaOi8YSw=",
         "owner": "GustavEikaas",
-        "repo": "easy-dotnet-server",
-        "rev": "3179bfa7aae0bf693928493b2f31c6e2c681d7e5",
+        "repo": "easy-dotnet.nvim",
+        "rev": "051c53786398dc2319462378a6a717753a490822",
         "type": "github"
       },
       "original": {
         "owner": "GustavEikaas",
-        "repo": "easy-dotnet-server",
-        "type": "github"
-      }
-    },
-    "eyeliner-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1727476631,
-        "narHash": "sha256-qOMToZtBd39mdFZEr5WfIkHj+7TWeCPy2GJdIN+qOic=",
-        "owner": "jinh0",
-        "repo": "eyeliner.nvim",
-        "rev": "8f197eb30cecdf4c2cc9988a5eecc6bc34c0c7d6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "jinh0",
-        "repo": "eyeliner.nvim",
+        "repo": "easy-dotnet.nvim",
         "type": "github"
       }
     },
@@ -213,11 +197,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1768127708,
-        "narHash": "sha256-1Sm77VfZh3mU0F5OqKABNLWxOuDeHIlcFjsXeeiPazs=",
+        "lastModified": 1768564909,
+        "narHash": "sha256-Kell/SpJYVkHWMvnhqJz/8DqQg2b6PguxVWOuadbHCc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ffbc9f8cbaacfb331b6017d5a5abb21a492c9a38",
+        "rev": "e4bae1bd10c9c57b2cf517953ab70060a828ee6f",
         "type": "github"
       },
       "original": {
@@ -229,8 +213,7 @@
     },
     "root": {
       "inputs": {
-        "easy-dotnet-source": "easy-dotnet-source",
-        "eyeliner-nvim": "eyeliner-nvim",
+        "easy-dotnet-nvim": "easy-dotnet-nvim",
         "flake-utils": "flake-utils",
         "gen-luarc": "gen-luarc",
         "nixpkgs": "nixpkgs_2"
