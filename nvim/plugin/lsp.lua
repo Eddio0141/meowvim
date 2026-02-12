@@ -41,23 +41,7 @@ local servers = {
       Lua = {}
     }
   },
-  pylsp = {
-    settings = {
-      pylsp = {
-        plugins = {
-          pycodestyle = {
-            ignore = { "E501" }
-          },
-          rope_autoimport = {
-            enabled = true,
-            code_actions = {
-              enabled = true
-            }
-          }
-        }
-      }
-    }
-  },
+  ty = {},
   mojo = {},
   ccls = {},
   qmlls = {}
