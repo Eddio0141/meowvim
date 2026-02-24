@@ -3,11 +3,11 @@
     "easy-dotnet-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1771790156,
-        "narHash": "sha256-0GB59go5gLg67jjmcVgjW+LzgKt0FV/Ot3OhUo3mRhM=",
+        "lastModified": 1771940409,
+        "narHash": "sha256-frSiCzDwJACzABQdALjmDrSUqrQ16/qt1vAmVqQQ4Do=",
         "owner": "GustavEikaas",
         "repo": "easy-dotnet.nvim",
-        "rev": "d204b5e5adaa4749817631f1b10654fc72e91d46",
+        "rev": "9839771558e1fefd49666e6f841122b2bae34e8d",
         "type": "github"
       },
       "original": {
@@ -197,11 +197,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1771369470,
-        "narHash": "sha256-0NBlEBKkN3lufyvFegY4TYv5mCNHbi5OmBDrzihbBMQ=",
+        "lastModified": 1771848320,
+        "narHash": "sha256-0MAd+0mun3K/Ns8JATeHT1sX28faLII5hVLq0L3BdZU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "0182a361324364ae3f436a63005877674cf45efb",
+        "rev": "2fc6539b481e1d2569f25f8799236694180c0993",
         "type": "github"
       },
       "original": {
