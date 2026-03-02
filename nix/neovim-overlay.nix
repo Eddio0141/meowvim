@@ -147,7 +147,7 @@ let
     ripgrep
     lazygit
     nixd
-    nixfmt-rfc-style
+    nixfmt
     gnused
     (symlinkJoin {
       name = "codelldb";
