@@ -128,6 +128,7 @@ let
         version = inputs.easy-dotnet-nvim.lastModifiedDate;
         doCheck = false;
       })
+      obsidian-nvim
     ]
     # add the lazily loaded plugins
     ++ (map (
