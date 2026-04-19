@@ -10,71 +10,54 @@
   neovimUtils,
 }:
 with lib;
-{
-  # NVIM_APPNAME - Defaults to 'nvim' if not set.
-  # If set to something else, this will also rename the binary.
-  appName ? null,
-  plugins ? [ ], # List of plugins
-  # List of dev plugins (will be bootstrapped) - useful for plugin developers
-  # { name = <plugin-name>; url = <git-url>; }
-  devPlugins ? [ ],
-  # Regexes for config files to ignore, relative to the nvim directory.
-  # e.g. [ "^plugin/neogit.lua" "^ftplugin/.*.lua" ]
-  ignoreConfigRegexes ? [ ],
-  extraPackages ? [ ], # Extra runtime dependencies (e.g. ripgrep, ...)
-  # The below arguments can typically be left as their defaults
-  # Additional lua packages (not plugins), e.g. from luarocks.org.
-  # e.g. p: [p.jsregexp]
-  extraLuaPackages ? p: [ ],
-  extraPython3Packages ? p: [ ], # Additional python 3 packages
-  withPython3 ? true, # Build Neovim with Python 3 support?
-  withRuby ? false, # Build Neovim with Ruby support?
-  withNodeJs ? false, # Build Neovim with NodeJS support?
-  withSqlite ? true, # Add sqlite? This is a dependency for some plugins
-  # You probably don't want to create vi or vim aliases
-  # if the appName is something different than "nvim"
-  # Add a "vi" binary to the build output as an alias?
-  viAlias ? appName == null || appName == "nvim",
-  # Add a "vim" binary to the build output as an alias?
-  vimAlias ? appName == null || appName == "nvim",
-  wrapRc ? true,
-}:
-let
-  # This is the structure of a plugin definition.
-  # Each plugin in the `plugins` argument list can also be defined as this attrset
-  defaultPlugin = {
-    plugin = null; # e.g. nvim-lspconfig
-    config = null; # plugin config
-    # If `optional` is set to `false`, the plugin is installed in the 'start' packpath
-    # set to `true`, it is installed in the 'opt' packpath, and can be lazy loaded with
-    # ':packadd! {plugin-name}
-    optional = false;
-    runtime = { };
-  };
+  {
+    # NVIM_APPNAME - Defaults to 'nvim' if not set.
+    # If set to something else, this will also rename the binary.
+    appName ? null,
+    plugins ? [], # List of plugins
+    # List of dev plugins (will be bootstrapped) - useful for plugin developers
+    # { name = <plugin-name>; url = <git-url>; }
+    devPlugins ? [],
+    # Regexes for config files to ignore, relative to the nvim directory.
+    # e.g. [ "^plugin/neogit.lua" "^ftplugin/.*.lua" ]
+    ignoreConfigRegexes ? [],
+    extraPackages ? [], # Extra runtime dependencies (e.g. ripgrep, ...)
+    # The below arguments can typically be left as their defaults
+    # Additional lua packages (not plugins), e.g. from luarocks.org.
+    # e.g. p: [p.jsregexp]
+    extraLuaPackages ? p: [],
+    extraPython3Packages ? p: [], # Additional python 3 packages
+    withPython3 ? true, # Build Neovim with Python 3 support?
+    withRuby ? false, # Build Neovim with Ruby support?
+    withNodeJs ? false, # Build Neovim with NodeJS support?
+    withSqlite ? true, # Add sqlite? This is a dependency for some plugins
+    # You probably don't want to create vi or vim aliases
+    # if the appName is something different than "nvim"
+    # Add a "vi" binary to the build output as an alias?
+    viAlias ? appName == null || appName == "nvim",
+    # Add a "vim" binary to the build output as an alias?
+    vimAlias ? appName == null || appName == "nvim",
+    wrapRc ? true,
+  }: let
+    # This is the structure of a plugin definition.
+    # Each plugin in the `plugins` argument list can also be defined as this attrset
+    defaultPlugin = {
+      plugin = null; # e.g. nvim-lspconfig
+      config = null; # plugin config
+      # If `optional` is set to `false`, the plugin is installed in the 'start' packpath
+      # set to `true`, it is installed in the 'opt' packpath, and can be lazy loaded with
+      # ':packadd! {plugin-name}
+      optional = false;
+    };
 
   externalPackages = extraPackages ++ (optionals withSqlite [ sqlite ]);
 
   # Map all plugins to an attrset { plugin = <plugin>; config = <config>; optional = <tf>; ... }
   normalizedPlugins = map (x: defaultPlugin // (if x ? plugin then x else { plugin = x; })) plugins;
 
-  # This nixpkgs util function creates an attrset
-  # that pkgs.wrapNeovimUnstable uses to configure the Neovim build.
-  neovimConfig = neovimUtils.makeNeovimConfig {
-    inherit
-      extraPython3Packages
-      withPython3
-      withRuby
-      withNodeJs
-      viAlias
-      vimAlias
-      ;
-    plugins = normalizedPlugins;
-  };
-
-  # This uses the ignoreConfigRegexes list to filter
-  # the nvim directory
-  nvimRtpSrc =
-    let
+    # This uses the ignoreConfigRegexes list to filter
+    # the nvim directory
+    nvimRtpSrc = let
       src = ../nvim;
     in
     lib.cleanSourceWith {
@@ -192,22 +175,19 @@ let
         concatMapStringsSep ";" luaPackages.getLuaPath resolvedExtraLuaPackages
       }"'';
 
-  # wrapNeovimUnstable is the nixpkgs utility function for building a Neovim derivation.
-  neovim-wrapped = wrapNeovimUnstable neovim-unwrapped (
-    neovimConfig
-    // {
-      luaRcContent = initLua;
-      wrapperArgs =
-        escapeShellArgs neovimConfig.wrapperArgs
-        + " "
-        + extraMakeWrapperArgs
-        + " "
-        + extraMakeWrapperLuaCArgs
-        + " "
-        + extraMakeWrapperLuaArgs;
-      wrapRc = wrapRc;
-    }
-  );
+    # wrapNeovimUnstable is the nixpkgs utility function for building a Neovim derivation.
+    neovim-wrapped = wrapNeovimUnstable neovim-unwrapped {
+        inherit extraPython3Packages withPython3 withRuby withNodeJs viAlias vimAlias;
+        plugins = normalizedPlugins;
+
+        luaRcContent = initLua;
+        wrapperArgs = extraMakeWrapperArgs
+          + " "
+          + extraMakeWrapperLuaCArgs
+          + " "
+          + extraMakeWrapperLuaArgs;
+        wrapRc = wrapRc;
+      };
 
   isCustomAppName = appName != null && appName != "nvim";
 in
