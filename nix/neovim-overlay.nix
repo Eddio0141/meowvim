@@ -73,9 +73,7 @@ let
     with pkgs.vimPlugins;
     [
       lz-n
-      # TODO: wait until highlighting isn't broken, and checkhealth actually detects languages
-      nvim-treesitter-legacy.withAllGrammars
-      # nvim-treesitter.withAllGrammars
+      nvim-treesitter.withAllGrammars
       # git integration plugins
       gitsigns-nvim # https://github.com/lewis6991/gitsigns.nvim/
       vim-fugitive # https://github.com/tpope/vim-fugitive/
