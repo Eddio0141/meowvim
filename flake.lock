@@ -3,11 +3,11 @@
     "easy-dotnet-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1779442514,
-        "narHash": "sha256-0rvkOKGWSYrB/GoV48Q4JSwbcz5SKIJGvXPwR7vJROM=",
+        "lastModified": 1780690157,
+        "narHash": "sha256-e+6/BJYFCBxiNe//tAjKXXtZ7B1EwA8u7RaEdMmnM5U=",
         "owner": "GustavEikaas",
         "repo": "easy-dotnet.nvim",
-        "rev": "5d5b3e2491a81efe252004e1876bd67af7dfc9c1",
+        "rev": "4553feb3e82002ef4588b8e429d28cc5a6e19e5d",
         "type": "github"
       },
       "original": {
