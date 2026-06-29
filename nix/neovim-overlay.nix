@@ -129,16 +129,11 @@ let
       obsidian-nvim
     ]
     # add the lazily loaded plugins
-    ++ (map (
-      x:
-      {
-        plugin = null;
-        config = null;
-        optional = true;
-        runtime = { };
-      }
-      // (if x ? plugin then x else { plugin = x; })
-    ) lazy-plugins);
+    ++ (map (x: {
+      plugin = x;
+      config = null;
+      optional = true;
+    }) lazy-plugins);
 
   extraPackages = with pkgs; [
     lua-language-server
