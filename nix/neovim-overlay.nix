@@ -86,8 +86,7 @@ let
       # ^ language support
       # navigation/editing enhancement plugins
       vim-unimpaired # predefined ] and [ navigation keymaps | https://github.com/tpope/vim-unimpaired/
-      # TODO: restore when nvim-treesitter.withAllGrammars can be used, check TODO above ^^^
-      # nvim-treesitter-textobjects # https://github.com/nvim-treesitter/nvim-treesitter-textobjects/
+      nvim-treesitter-textobjects # https://github.com/nvim-treesitter/nvim-treesitter-textobjects/
       nvim-ts-context-commentstring # https://github.com/joosepalviste/nvim-ts-context-commentstring/
       # ^ navigation/editing enhancement plugins
       # Useful utilities
