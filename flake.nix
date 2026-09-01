@@ -72,6 +72,8 @@
         packages = rec {
           default = nvim;
           nvim = pkgs.nvim-pkg;
+          easy-dotnet-server-fetch-deps =
+            (pkgs.callPackage ./nix/easy-dotnet-server/default.nix { }).fetch-deps;
         };
         devShells = {
           default = shell;
