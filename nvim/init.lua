@@ -49,6 +49,9 @@ opt.titlestring = vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. " - meowvim!"
 -- wait for lualine to load and replace it
 opt.laststatus = 0
 
+-- for project specific config
+opt.exrc = true
+
 -- Configure Neovim diagnostic messages
 
 local function prefix_diagnostic(prefix, diagnostic)
