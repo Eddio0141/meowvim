@@ -5,8 +5,8 @@
 buildDotnetGlobalTool {
   pname = "dotnet-easydotnet";
   nugetName = "EasyDotnet";
-  version = "3.2.12";
-  nugetHash = "sha256-mTvcx3/ef42nv1/k3FijV/55H4DzBHWv/rFgh/AHfJ0=";
+  version = "3.4.26";
+  nugetHash = "sha256-Sn4zzJ4nWkkp5o/aJ9HV8m+JW4DWx09/MsNEbWU1qYU=";
   postFixup = ''
     cd "$out/bin"
     ln -s dotnet-easydotnet easydotnet
